@@ -30,5 +30,7 @@ public class UserManager implements UserDAO{
 	@Override
 	public void deleteUser(User user) {
 		dao.deleteUser(user);
+		//test
+		
 	}
 }
