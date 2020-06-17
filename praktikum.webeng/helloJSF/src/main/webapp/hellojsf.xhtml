@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:body>
+
+
+#{helloJSF.message}
+<form jsf:id="form" id="hellojsfForm">
+	<h:commandButton value="update" action="#{helloJSF.update}"></h:commandButton>
+</form>
+
+</h:body>
+
+</html>

@@ -1,0 +1,10 @@
+// add plugin for java applications (e.g. run task)
+
+plugins{
+	id 'application'
+}
+
+
+// set main class (application plugin)
+mainClassName = 'app.HelloJava'
+

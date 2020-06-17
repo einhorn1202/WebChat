@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../../Gradle/gradle-6.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/chatChannel" />
+            <option value="$PROJECT_DIR$/helloJSF" />
+            <option value="$PROJECT_DIR$/helloJava" />
+            <option value="$PROJECT_DIR$/helloServlet" />
+            <option value="$PROJECT_DIR$/jsp" />
+            <option value="$PROJECT_DIR$/webeng02" />
+            <option value="$PROJECT_DIR$/webeng03" />
+            <option value="$PROJECT_DIR$/webshop" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

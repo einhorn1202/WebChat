@@ -1,0 +1,72 @@
+buildscript {
+  repositories {
+    jcenter()
+    // enable this to use snapshot versions of Gretty:
+    // maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
+  }
+
+  dependencies {
+    classpath 'org.gretty:gretty:+'
+  }
+}
+
+repositories {
+  jcenter()
+  // enable this to use snapshot versions of Gretty:
+  // maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
+}
+
+
+allprojects {
+	// add configurations for all projects here 
+	
+	// plugins for all projects, gretty because you can build a server farm in root project
+	
+  	apply plugin: 'eclipse-wtp' 	// plugin for eclipse-wtp configuration (https://docs.gradle.org/current/userguide/eclipse_plugin.html) -> adds eclipse plugin too	
+
+}
+
+subprojects {
+	// add configurations only for subprojects here
+
+	// apply plugins for subprojects
+	apply plugin: 'java'		// plugin for java projects			  	
+	apply plugin: 'war'			// plugin for war (web-archive) projects
+	apply plugin: 'org.gretty'	// plugin for gretty projects (adds support for jetty or tomcat webcontainers
+	
+  	repositories {				// add repositories to download libs
+	    jcenter()	    
+	}	
+	
+	gretty {								// configure Gretty plugin
+    	debugSuspend = false				// suspend start until debugger is attached 
+    	debugPort = 5005					// port to attach eclipse-debugger
+ 		httpPort = 8080						// port to access web-server
+ 		managedClassReload = true			// reload server when editing managed Classes (e.g. ManagedBeans)
+ 		scanInterval = 1 		
+ 		interactiveMode = 'rebuildAndRestartOnKeyPress'
+ 	}
+
+	
+  	// configure eclipse projects (set java and add facets)
+ 	eclipse {
+
+  		wtp {								// add facets to projects
+  			
+    		facet { 
+    			facets = []				           // clear facets (so no duplicates will occur 
+            	facet name: 'jst.java', version: '1.8'
+    		}
+  		}
+	}
+	
+		// creates folder structure if needed
+	task initSourceFolders { // add << before { to prevent executing during configuration phase, else it is executed automaticly
+	   sourceSets*.java.srcDirs*.each { it.mkdirs() }
+	   sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+	}
+}
+
+
+
+

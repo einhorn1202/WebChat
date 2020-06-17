@@ -1,0 +1,40 @@
+dependencies {
+	compile 'javax.servlet:javax.servlet-api:3.1.0'	  
+	
+	// https://mvnrepository.com/artifact/taglibs/standard
+	compile group: 'taglibs', name: 'standard', version: '1.1.2'
+	
+	// https://mvnrepository.com/artifact/com.sun.faces/jsf-impl
+	compile group: 'com.sun.faces', name: 'jsf-impl', version: '2.2.20'
+	compile group: 'com.sun.faces', name: 'jsf-api', version: '2.2.20'
+	
+	// https://mvnrepository.com/artifact/org.jboss.weld.servlet/weld-servlet-core
+	compile group: 'org.jboss.weld.servlet', name: 'weld-servlet-core', version: '3.1.4.Final'
+	
+	
+
+	
+}
+
+gretty {
+  	contextPath = '/helloJSF'	
+  	fastReload = true
+  	
+}
+
+eclipse.wtp.facet {			// add facets to projects
+  	facet name: 'jst.web', version: '3.1'
+  	facet name: 'jst.jsf', version: '2.2'
+}
+
+// copy classes into inplaceWebApp
+task sync(type: Sync) {
+	dependsOn build
+	from "$sourceSets.main.java.outputDir"
+	into "${project.buildDir}/inplaceWebapp/WEB-INF/classes"
+}
+project.afterEvaluate {
+	tasks.prepareInplaceWebApp {
+		dependsOn sync
+	}
+}

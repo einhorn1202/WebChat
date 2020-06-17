@@ -1,0 +1,15 @@
+// set root project name
+rootProject.name = 'praktikum.webeng'
+
+// include subprojects
+include 'helloJava'
+include 'helloServlet'
+include 'webeng02'
+include 'webeng03'
+include 'webshop'
+include 'jsp'
+include 'helloJSF'
+include 'chatChannel'
+
+// to create new subproject just add another 
+// include '<PROJECT_NAME>'
