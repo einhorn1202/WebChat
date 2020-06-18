@@ -16,12 +16,16 @@
 <h:form id="CreateChannelForm">
   <h:panelGrid id="grid" columns="3">
     <h:outputText value="Channelname"/>
-    <h:inputText label="Channelname" value="#{login.username}" /><br/><br/>
+    <h:inputSecret value="#{ChannelBean.addChannel}" /><br/><br/>
 
-    <h:outputText value="Password: "/>
-    <h:inputSecret value="#{login.password}" /><br/><br/>
+	 <h:outputText value="Bild hochladen "/>
+    <h:inputSecret value="#{ChannelBean.setChannelPic}" /><br/><br/>
+    
+    <h:outputText value="Beschreibung: "/>
+    <h:inputSecret value="#{ChannelBean.addDescription}" /><br/><br/>
 
-    <h:commandButton value="login" action="#{login.login}" />
+    <h:commandButton value="login" action="#{ChannelBean.addChannel}" />
+    <h:commandButton value="cancel" action="#{}" />
   </h:panelGrid>
 </h:form>
 </html>
