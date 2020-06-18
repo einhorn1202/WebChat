@@ -1,5 +1,6 @@
 dependencies {
 	compile 'javax.servlet:javax.servlet-api:3.1.0'	  
+	 compile 'net.bootsfaces:bootsfaces:1.4.2'
 	
 	// https://mvnrepository.com/artifact/taglibs/standard
 	compile group: 'taglibs', name: 'standard', version: '1.1.2'
