@@ -9,8 +9,8 @@ public class User implements Serializable{
 	private String password;
 	private String profilePic;
 	private String color;
+	
 	public User() {
-		super();
 	}
 	
 	public User(String username, String password, String profilePic, String color) {
@@ -27,6 +27,7 @@ public class User implements Serializable{
 		this.profilePic = profilePic;
 		this.color = color;
 	}
+
 	
 	/**
 	 * @return the userID

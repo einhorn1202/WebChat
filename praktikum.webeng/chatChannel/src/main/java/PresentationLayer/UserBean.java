@@ -1,16 +1,22 @@
 package PresentationLayer;
 
 
-import java.awt.Color;
-import java.awt.Image;
-import java.util.ArrayList;
-
+import java.io.Serializable;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
+
 import BusinessLogicLayer.UserManager;
 import TransferObjects.User;
 
-public class UserBean {
+@Named
+@SessionScoped
+public class UserBean implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	User user;
 	UserManager userManager;
 	

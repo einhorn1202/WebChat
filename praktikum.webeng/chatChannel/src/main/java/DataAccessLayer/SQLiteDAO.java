@@ -12,7 +12,7 @@ public class SQLiteDAO {
 	public SQLiteDAO() {
 		try {
 			if(connection == null)
-				connection = DriverManager.getConnection("jdbc:sqlite:" + "../../resources/database.db");
+				connection = DriverManager.getConnection("jdbc:sqlite:" + "C:/Users/Julius Jérôme/git/WebChat/praktikum.webeng/chatChannel/src/main/resources/database.db");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			throw new RuntimeException(e);
