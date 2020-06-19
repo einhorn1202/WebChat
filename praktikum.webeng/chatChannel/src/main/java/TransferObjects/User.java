@@ -4,11 +4,17 @@ import java.io.Serializable;
 
 public class User implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private int userID;
 	private String username;
 	private String password;
 	private String profilePic;
 	private String color;
+	
 	public User() {
 		super();
 	}

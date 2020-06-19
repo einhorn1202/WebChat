@@ -1,5 +1,2 @@
-/BusinessLogicLayer/
-/DataAccessLayer/
-/PresentationLayer/
 /TransferObjects/
-/database.db
+/PresentationLayer/
