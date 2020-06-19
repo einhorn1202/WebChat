@@ -4,13 +4,14 @@ package PresentationLayer;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import java.io.Serializable;
 
 import BusinessLogicLayer.UserManager;
 import TransferObjects.User;
 
 @Named
 @SessionScoped
-public class UserBean{
+public class UserBean implements Serializable {
 	
 	/**
 	 * 
