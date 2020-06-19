@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html 
 	xmlns="http://www.w3.org/1999/xhtml"
@@ -5,5 +6,32 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:f="http://xmlns.jcp.org/jsf/core"
-          xmlns:b="http://bootsfaces.net/ui"
+    xmlns:b="http://bootsfaces.net/ui"
     xmlns:h="http://xmlns.jcp.org/jsf/html">
+    
+<h:head>
+  <title>Profil bearbeiten</title>
+</h:head>
+ 
+<h1><h:outputText value="Profil bearbeiten"/></h1>
+<h:form id="updateform">
+    <h:panelGrid id="grid" columns="4">
+    	<h:outputText value="Id" for="id"/>
+        <h:inputText id="id" value="#{userBean.user.userID}" required="true"/>
+        
+        <h:outputText value="Nutzername" for="userName"/>
+        <h:inputText id="userName" value="#{userBean.user.username}" required="true"/>
+ 
+        <h:outputText value="Passwort" for="password"/>
+        <h:inputSecret id="password" value="#{userBean.user.password}" required="true"/>
+        
+        <h:outputText value="Profile_pic" for="profile_pic"/>
+        <h:inputText id="profile_pic" value="#{userBean.user.profilePic}" required="true"/>
+
+        <h:outputText value="Color" for="color"/>
+        <h:inputText id="color" value="#{userBean.user.color}" required="true"/>
+
+        <h:commandButton action="#{userBean.updateUser()}" value="Submit" />
+    </h:panelGrid>
+</h:form>
+</html>

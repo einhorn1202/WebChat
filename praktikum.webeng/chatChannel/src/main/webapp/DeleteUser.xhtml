@@ -5,5 +5,20 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:f="http://xmlns.jcp.org/jsf/core"
-          xmlns:b="http://bootsfaces.net/ui"
+    xmlns:b="http://bootsfaces.net/ui"
     xmlns:h="http://xmlns.jcp.org/jsf/html">
+    
+<h:head>
+  <title>Account Löschen</title>
+</h:head>
+
+<h1>Möchten Sie Ihren Account wirklich löschen?</h1>
+
+<h:form id="DeleteUserForm">    
+  <h:panelGrid id="grid" columns="3">
+    <h:commandButton value="ja" action="#{UserBean.deleteUser}" />
+    <h:commandButton value="nein" action="#{Menu}" />
+  </h:panelGrid>
+  
+  </h:form>
+</html>

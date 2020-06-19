@@ -5,7 +5,7 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:f="http://xmlns.jcp.org/jsf/core"
-          xmlns:b="http://bootsfaces.net/ui"
+    xmlns:b="http://bootsfaces.net/ui"
     xmlns:h="http://xmlns.jcp.org/jsf/html">
     
 <h:head>
@@ -17,16 +17,17 @@
 <h:form id="CreateChannelForm">
   <h:panelGrid id="grid" columns="3">
     <h:outputText value="Channelname"/>
-    <h:inputSecret value="#{ChannelBean.addChannel}" /><br/><br/>
+    <h:inputText value="#{ChannelBean.addChannel}" /><br/><br/>
 
 	 <h:outputText value="Bild hochladen "/>
-    <h:inputSecret value="#{ChannelBean.setChannelPic}" /><br/><br/>
+  	<h:inputFile id="file" value="#{ChannelBean.setChannelPic}"/>
+  	<h:commandButton value="Upload" action="#{bean.upload}"/>
     
     <h:outputText value="Beschreibung: "/>
-    <h:inputSecret value="#{ChannelBean.addDescription}" /><br/><br/>
+    <h:inputText value="#{ChannelBean.addDescription}" /><br/><br/>
 
     <h:commandButton value="login" action="#{ChannelBean.addChannel}" />
-    <h:commandButton value="cancel" action="ChannelOverview.xhtml" />
+    <h:commandButton value="cancel" action="#{ChannelOverview}" />
   </h:panelGrid>
 </h:form>
 </html>
