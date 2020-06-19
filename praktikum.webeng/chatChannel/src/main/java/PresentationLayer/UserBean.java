@@ -49,6 +49,10 @@ public class UserBean{
 		return "";
 	}
 	
+	public String loginUser() {
+		return "channelOverView";
+	}
+	
 	public String deleteUser() {
 		userManager.deleteUser(user);
 		return "SuccessDelete";

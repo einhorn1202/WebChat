@@ -31,6 +31,10 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="lib/sqlite-jdbc-3.30.1.jar"/>
+=======
+	<classpathentry kind="lib" path="src/main/resources/sqlite-jdbc-3.30.1.jar"/>
+>>>>>>> branch 'master' of https://github.com/einhorn1202/WebChat.git
 	<classpathentry kind="output" path="bin/default"/>
 </classpath>
