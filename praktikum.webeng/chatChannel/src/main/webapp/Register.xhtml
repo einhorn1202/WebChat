@@ -1,7 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:b="http://bootsfaces.net/ui"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
   <title>Registrierung</title>
 </h:head>
@@ -14,7 +16,7 @@
             <br/><br/>
         <h:outputText value="Passwort" for="password"/>
         <h:inputSecret id="password" value="#{userBean.user.password}" required="true"/>
-        <h:commandButton action="#{userBean.registerUser()}" value="Submit" />
+        <h:commandButton action="#{userBean.registerUser}" value="Submit" />
     </h:panelGrid>
 </h:form>
 </html>

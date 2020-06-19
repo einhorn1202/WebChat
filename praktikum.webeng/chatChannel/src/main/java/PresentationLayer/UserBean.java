@@ -51,6 +51,10 @@ public class UserBean implements Serializable{
 		return "channelOverView";
 	}
 	
+	public String loginUser() {
+		return "channelOverView";
+	}
+	
 	public String deleteUser() {
 		userManager.deleteUser(user);
 		return "SuccessDelete";
