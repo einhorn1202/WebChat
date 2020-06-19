@@ -13,7 +13,7 @@ import TransferObjects.Channel;
 @RequestScoped
 public class ChannelBean {
 	
-	ChannelManager channelManager;
+	private ChannelManager channelManager;
 	private Channel channel;
 	private ArrayList<Channel> channelList;
 	
