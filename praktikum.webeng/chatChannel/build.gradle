@@ -34,8 +34,17 @@ task sync(type: Sync) {
 	from "$sourceSets.main.java.outputDir"
 	into "${project.buildDir}/inplaceWebapp/WEB-INF/classes"
 }
+
 project.afterEvaluate {
 	tasks.prepareInplaceWebApp {
 		dependsOn sync
 	}
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group:'org.xerial', name:'sqlite-jdbc', version:'3.8.11.2'
 }

@@ -9,11 +9,16 @@
 <h1><h:outputText value="Registrierung"/></h1>
 <h:form id="registerform">
     <h:panelGrid id="grid" columns="4">
+    	<h:outputText value="Id" for="id"/>
+        <h:inputText id="id" value="#{userBean.user.userID}" required="true"/>
         <h:outputText value="Nutzername" for="userName"/>
-        <h:inputText id="userName" value="#{userBean.user.userID}" required="true"/>
-            <br/><br/>
+        <h:inputText id="userName" value="#{userBean.user.username}" required="true"/>
         <h:outputText value="Passwort" for="password"/>
         <h:inputSecret id="password" value="#{userBean.user.password}" required="true"/>
+        <h:outputText value="Profile_pic" for="profile_pic"/>
+        <h:inputSecret id="profile_pic" value="#{userBean.user.profilePic}" required="true"/>
+        <h:outputText value="Color" for="color"/>
+        <h:inputSecret id="color" value="#{userBean.user.color}" required="true"/>
         <h:commandButton action="#{userBean.registerUser()}" value="Submit" />
     </h:panelGrid>
 </h:form>

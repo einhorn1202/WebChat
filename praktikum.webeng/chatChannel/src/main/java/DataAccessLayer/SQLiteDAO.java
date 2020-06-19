@@ -6,13 +6,19 @@ import java.sql.SQLException;
 
 public class SQLiteDAO {
 	
-	Connection connection;
+	Connection connection = null;
 	
 	
 	public SQLiteDAO() {
 		try {
 			if(connection == null)
-				connection = DriverManager.getConnection("jdbc:sqlite:" + "C:/Users/Julius Jérôme/git/WebChat/praktikum.webeng/chatChannel/src/main/resources/database.db");
+				try {
+					Class.forName("org.sqlite.JDBC");
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				connection = DriverManager.getConnection("jdbc:sqlite:" + "C:/data/database.db");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			throw new RuntimeException(e);

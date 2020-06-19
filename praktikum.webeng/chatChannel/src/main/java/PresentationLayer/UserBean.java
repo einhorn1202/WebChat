@@ -1,7 +1,6 @@
 package PresentationLayer;
 
 
-import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -11,12 +10,11 @@ import TransferObjects.User;
 
 @Named
 @SessionScoped
-public class UserBean implements Serializable{
+public class UserBean{
 	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	User user;
 	UserManager userManager;
 	
@@ -39,7 +37,6 @@ public class UserBean implements Serializable{
 		this.user = user;
 	}
 	
-	
 
 	/*
 	 * ACTION-METHODEN DER BEAN
@@ -47,8 +44,9 @@ public class UserBean implements Serializable{
 	
 	
 	public String registerUser() {
+		System.out.println("hallo");
 		userManager.addUser(user);
-		return "channelOverView";
+		return "";
 	}
 	
 	public String deleteUser() {
