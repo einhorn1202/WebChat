@@ -1,6 +1,8 @@
 package TransferObjects;
 
-public class Message {
+import java.io.Serializable;
+
+public class Message implements Serializable{
 	private int messageID;
 	private String value;
 	private int messageChannelID;

@@ -1,8 +1,9 @@
 package TransferObjects;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Channel {
+public class Channel implements Serializable{
 	private int channelID;
 	private String channelName;
 	private String channelPic;

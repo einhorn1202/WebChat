@@ -48,6 +48,5 @@ public class ChannelBean {
 	 * ACTION-METHODEN DER BEAN
 	 */
 	
-	
 
 }

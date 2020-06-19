@@ -40,5 +40,13 @@ public class UserBean {
 	 */
 	
 	
-    
+	public String registerUser() {
+		userManager.addUser(user);
+		return "channelOverView";
+	}
+	
+	public String deleteUser() {
+		userManager.deleteUser(user);
+		return "SuccessDelete";
+	}
 }
