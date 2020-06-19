@@ -1,14 +1,12 @@
 package PresentationLayer;
 
+
 import java.awt.Color;
 import java.awt.Image;
 import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
-
-import BusinessLogicLayer.ChannelManager;
 import BusinessLogicLayer.UserManager;
-import TransferObjects.Channel;
 import TransferObjects.User;
 
 public class UserBean {
