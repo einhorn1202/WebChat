@@ -11,8 +11,8 @@
 <h1><h:outputText value="Registrierung"/></h1>
 <h:form id="registerform">
     <h:panelGrid id="grid" columns="4">
-    	<h:outputText value="Id" for="id"/>
-        <h:inputText id="id" value="#{userBean.user.userID}" required="true"/>
+    	<h:outputText value="UserID" for="userID"/>
+        <h:inputText id="userID" value="#{userBean.user.userID}" required="true"/>
         <h:outputText value="Nutzername" for="userName"/>
         <h:inputText id="userName" value="#{userBean.user.username}" required="true"/>
         <h:outputText value="Passwort" for="password"/>

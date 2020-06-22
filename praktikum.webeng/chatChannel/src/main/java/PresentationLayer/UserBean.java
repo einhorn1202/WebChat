@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-
+import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -10,7 +10,7 @@ import TransferObjects.User;
 
 @Named
 @SessionScoped
-public class UserBean{
+public class UserBean implements Serializable{
 	
 	/**
 	 * 
