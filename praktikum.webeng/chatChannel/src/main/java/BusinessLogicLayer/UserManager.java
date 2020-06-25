@@ -7,7 +7,7 @@ import TransferObjects.User;
 
 public class UserManager{
 	
-	SQLiteUserDAO dao;
+	UserDAO dao;
 	public UserManager() {
 		dao = DAOFactory.getSQLiteUserDAO();
 	}

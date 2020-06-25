@@ -11,7 +11,7 @@ import TransferObjects.User;
 
 public class ChannelManager  implements ChannelDAO{
 	
-	SQLiteChannelDAO dao;
+	ChannelDAO dao;
 	
 	public ChannelManager() {
 		dao = DAOFactory.getSQLiteChannelDAO();

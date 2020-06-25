@@ -6,11 +6,11 @@ public class DAOFactory {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static SQLiteChannelDAO getSQLiteChannelDAO() {
+	public static ChannelDAO getSQLiteChannelDAO() {
 		return new SQLiteChannelDAO();
 	}
 	
-	public static SQLiteUserDAO getSQLiteUserDAO() {
+	public static UserDAO getSQLiteUserDAO() {
 		return new SQLiteUserDAO();
 	}
 
