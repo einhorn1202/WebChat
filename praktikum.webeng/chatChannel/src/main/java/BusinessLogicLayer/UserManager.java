@@ -29,4 +29,14 @@ public class UserManager{
 		//test
 		
 	}
+	
+	public Boolean usernameIsValid(User newUser) {
+		for(User oldUser : dao.getAllUsers()) {
+			if(oldUser.getUsername().compareTo(newUser.getUserName()) == 0) {
+				return false;
+				break;
+			}
+		}
+		return true;
+	}
 }
