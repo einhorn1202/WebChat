@@ -18,7 +18,7 @@ public class SQLiteDAO {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				connection = DriverManager.getConnection("jdbc:sqlite:" + "C:/data/database.db");
+				connection = DriverManager.getConnection("jdbc:sqlite:" + "src/main/resources/database.db");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			throw new RuntimeException(e);

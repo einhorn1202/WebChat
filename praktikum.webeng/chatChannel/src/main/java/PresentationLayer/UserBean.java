@@ -4,13 +4,18 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import java.io.Serializable;
 
 import BusinessLogicLayer.UserManager;
 import TransferObjects.User;
 
 @Named
 @SessionScoped
+<<<<<<< HEAD
 public class UserBean implements Serializable{
+=======
+public class UserBean implements Serializable {
+>>>>>>> branch 'master' of https://github.com/einhorn1202/WebChat.git
 	
 	/**
 	 * 

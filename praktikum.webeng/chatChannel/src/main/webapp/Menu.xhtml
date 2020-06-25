@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:b="http://bootsfaces.net/ui"
+    xmlns:h="http://xmlns.jcp.org/jsf/html">
+    
+<h:head>
+  <title>Menu</title>
+</h:head>
+
+<h1>Menu</h1>
+
+<h:form id="MenuForm">    
+  <h:panelGrid id="grid" columns="3">
+    <h:commandButton value="Profil bearbeiten" action="#{EditUser}" />
+    <h:commandButton value="Ausloggen" action="#{Logout}" />
+    <h:commandButton value="Account Löschen" action="#{DeleteAccount}" />
+  </h:panelGrid>
+  
+  </h:form>
+</html>
