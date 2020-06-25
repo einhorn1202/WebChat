@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
         http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
 	version="2.2">
-
+	
 	<application>
 		<locale-config>
 			<default-locale>de</default-locale>
@@ -13,6 +13,7 @@
 			<base-name>lang.lang</base-name>
 			<var>msg</var>
 		</resource-bundle>
+		<resource-handler>org.omnifaces.resourcehandler.UnmappedResourceHandler</resource-handler>
 	</application>
 
 	<faces-config-extension>
@@ -21,5 +22,15 @@
 			<process-as>xhtml</process-as>
 		</facelets-processing>
 	</faces-config-extension>
+	
+	<navigation-rule>
+		<display-name>register.xhtml</display-name>
+		<from-view-id>/register.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{userBean.registerUser}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/ChannelOverview.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>

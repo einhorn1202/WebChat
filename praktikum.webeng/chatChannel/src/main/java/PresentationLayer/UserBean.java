@@ -51,7 +51,7 @@ public class UserBean implements Serializable {
 	public String registerUser() {
 		System.out.println("hallo");
 		userManager.addUser(user);
-		return "";
+		return "success";
 	}
 	
 	public String loginUser() {
