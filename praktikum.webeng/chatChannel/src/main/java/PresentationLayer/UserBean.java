@@ -49,9 +49,14 @@ public class UserBean implements Serializable {
 	
 	
 	public String registerUser() {
-		System.out.println("hallo");
-		userManager.addUser(user);
-		return "success";
+		if(userManager.isUsernameValid(user)) {
+			userManager.addUser(user);
+			return "registerSuccess";
+		}
+		else 
+			return "registerFailure";
+			
+		
 	}
 	
 	public String loginUser() {

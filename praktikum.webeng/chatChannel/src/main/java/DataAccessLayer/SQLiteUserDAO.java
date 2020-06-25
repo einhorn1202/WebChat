@@ -13,6 +13,8 @@ public class SQLiteUserDAO extends SQLiteDAO implements UserDAO{
 	private static final String updateUserStatement = "UPDATE USER SET USERNAME = ? , PASSWORD = ? , PROFILE_PIC = ? , COLOR =  ? WHERE USER_ID = ?";
 	private static final String addUserStatement = "INSERT INTO USER (USERNAME,PASSWORD,PROFILE_PIC,COLOR) VALUES (?,?,?,?)";
 	private static final String deleteUserStatement = "DELETE FROM USER WHERE USER_ID = ?";
+	private static final String getAllUsersStatement = "SELECT * FROM USER";
+	
 	
 	public SQLiteUserDAO() {
 		super();
@@ -99,6 +101,24 @@ public class SQLiteUserDAO extends SQLiteDAO implements UserDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	@Override public ArrayList<User> getAllUsers(){
+		PreparedStatement stmt;
+		ArrayList<User> userList = new ArrayList<User>();
+		try {
+			stmt = getConnection().prepareStatement(getAllUsersStatement);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				channelList.add(new User(rs.getInt("USER_ID"),rs.getString("USERNAME"),rs.getString("PASSWORD"), rs.getString("PROFILE_PIC"), rs.getString("COLOR")));
+			}
+			stmt.close();
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return userList;
 	}
 	
 	
