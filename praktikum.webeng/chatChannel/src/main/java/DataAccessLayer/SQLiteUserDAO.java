@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import TransferObjects.User;
 
@@ -110,7 +111,7 @@ public class SQLiteUserDAO extends SQLiteDAO implements UserDAO{
 			stmt = getConnection().prepareStatement(getAllUsersStatement);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				channelList.add(new User(rs.getInt("USER_ID"),rs.getString("USERNAME"),rs.getString("PASSWORD"), rs.getString("PROFILE_PIC"), rs.getString("COLOR")));
+				userList.add(new User(rs.getInt("USER_ID"),rs.getString("USERNAME"),rs.getString("PASSWORD"), rs.getString("PROFILE_PIC"), rs.getString("COLOR")));
 			}
 			stmt.close();
 			rs.close();

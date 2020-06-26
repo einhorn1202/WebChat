@@ -30,11 +30,10 @@ public class UserManager{
 		
 	}
 	
-	public Boolean usernameIsValid(User newUser) {
+	public Boolean isUsernameValid(User newUser) {
 		for(User oldUser : dao.getAllUsers()) {
-			if(oldUser.getUsername().compareTo(newUser.getUserName()) == 0) {
+			if(oldUser.getUsername().compareTo(newUser.getUsername()) == 0) {
 				return false;
-				break;
 			}
 		}
 		return true;

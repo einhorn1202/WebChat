@@ -13,7 +13,6 @@
 			<base-name>lang.lang</base-name>
 			<var>msg</var>
 		</resource-bundle>
-		<resource-handler>org.omnifaces.resourcehandler.UnmappedResourceHandler</resource-handler>
 	</application>
 
 	<faces-config-extension>

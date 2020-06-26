@@ -5,18 +5,14 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import BusinessLogicLayer.UserManager;
 import TransferObjects.User;
 
 @Named
 @SessionScoped
-<<<<<<< HEAD
-public class UserBean implements Serializable{
-=======
 public class UserBean implements Serializable {
->>>>>>> branch 'master' of https://github.com/einhorn1202/WebChat.git
-	
 	/**
 	 * 
 	 */
@@ -56,14 +52,5 @@ public class UserBean implements Serializable {
 		}
 		else
 			return "registerFailure";
-	}
-	
-	public String loginUser() {
-		return "channelOverView";
-	}
-	
-	public String deleteUser() {
-		userManager.deleteUser(user);
-		return "SuccessDelete";
 	}
 }
