@@ -26,12 +26,10 @@
 		<display-name>register.xhtml</display-name>
 		<from-view-id>/Register.xhtml</from-view-id>
 		<navigation-case>
-			<from-action>#{userBean.registerUser}</from-action>
 			<from-outcome>registerSuccess</from-outcome>
 			<to-view-id>/ChannelOverview.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
-			<from-action>#{userBean.registerUser}</from-action>
 			<from-outcome>registerFailure</from-outcome>
 			<to-view-id>/Register.xhtml</to-view-id>
 		</navigation-case>
