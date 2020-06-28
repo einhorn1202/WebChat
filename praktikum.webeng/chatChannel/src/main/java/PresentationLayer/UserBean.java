@@ -4,8 +4,6 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import javax.servlet.http.HttpSession;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -20,8 +18,6 @@ public class UserBean implements Serializable {
 	 */
 	User user;
 	UserManager userManager;
-	String password;
-	String username;
 	
 	@PostConstruct
 	public void init() {
@@ -57,6 +53,7 @@ public class UserBean implements Serializable {
 		else
 			return "registerFailure";
 	}
+<<<<<<< HEAD
 	
 	public String loginUser() {
 		//user = userManager.loginUser(username, password);
@@ -68,4 +65,6 @@ public class UserBean implements Serializable {
 		else
 			return "loginFailure";
 	}
+=======
+>>>>>>> branch 'master' of https://github.com/einhorn1202/WebChat.git
 }
