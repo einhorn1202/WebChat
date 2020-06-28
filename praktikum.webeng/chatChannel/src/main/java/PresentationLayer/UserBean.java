@@ -59,10 +59,10 @@ public class UserBean implements Serializable {
 	}
 	
 	public String loginUser() {
-		user = userManager.loginUser(username, password);
+		//user = userManager.loginUser(username, password);
 		if(user != null){
-			HttpSession session = request.getSession(true);
-			session.setAttribute("user", user);
+			//HttpSession session = request.getSession(true);
+			//session.setAttribute("user", user);
 			return "loginSuccess";
 		}
 		else
