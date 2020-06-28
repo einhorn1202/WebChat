@@ -12,6 +12,13 @@
   <title>Profil bearbeiten</title>
 </h:head>
  
+       <div style = "">
+         <ui:insert name = "header">
+            <ui:include src = "/templates/header.xhtml" />
+         </ui:insert> 
+      </div>
+      <br/>
+      
 <h1><h:outputText value="Profil bearbeiten"/></h1>
 <h:form id="updateform">
     <h:panelGrid id="grid" columns="4">
@@ -32,5 +39,11 @@
 
         <h:commandButton action="#{userBean.updateUser()}" value="Submit" />
     </h:panelGrid>
+    
+          <div style = "">
+         <ui:insert name = "footer" >
+            <ui:include src = "/templates/footer.xhtml" />
+         </ui:insert>
+      </div>
 </h:form>
 </html>

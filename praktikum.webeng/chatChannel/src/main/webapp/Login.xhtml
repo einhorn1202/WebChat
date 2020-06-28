@@ -12,17 +12,31 @@
   <title>Login</title>
 </h:head>
 
+      <div style = "">
+         <ui:insert name = "header">
+            <ui:include src = "/templates/header.xhtml" />
+         </ui:insert> 
+      </div>
+      <br/>
+      
 <h1>Login</h1>
 <h:form id="loginform">
   <h:panelGrid id="grid" columns="3">
     <h:outputText value="Username" for="username"/>
-    <h:inputText id="username" value="#{userBean.user.username}"/>
+    <h:inputText id="username" value="#{userBean.user.username}" required="true"/>
         <br/><br/>
     <h:outputText value="Password" for="password"/>
-    <h:inputSecret id="password" value="#{userBean.user.password}"/>
+    <h:inputSecret id="password" value="#{userBean.user.password}" required="true"/>
         <br/><br/>
     <h:commandButton value="login" action="#{userBean.loginUser}"/>
-    <h:commandButton value="cancel" action="#{ChannelOverview}" />
+    <h:commandButton value="cancel" action="Welcome.xhtml" />
   </h:panelGrid>
 </h:form>
+
+      <div style = "">
+         <ui:insert name = "footer" >
+            <ui:include src = "/templates/footer.xhtml" />
+         </ui:insert>
+      </div>
+      
 </html>

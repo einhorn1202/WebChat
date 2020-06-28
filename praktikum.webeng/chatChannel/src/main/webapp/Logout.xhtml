@@ -12,6 +12,13 @@
   <title>Ausloggen</title>
 </h:head>
 
+      <div style = "">
+         <ui:insert name = "header">
+            <ui:include src = "/templates/header.xhtml" />
+         </ui:insert> 
+      </div>
+      <br/>
+
 <h1>Möchten Sie sich wirklich ausloggen ?</h1>
 
 <h:form id="LogoutForm">    
@@ -19,6 +26,11 @@
     <h:commandButton value="ja" action="#{SuccessLogout}" />
     <h:commandButton value="nein" action="#{Menu}" />
   </h:panelGrid>
-  
   </h:form>
+  
+        <div style = "">
+         <ui:insert name = "footer" >
+            <ui:include src = "/templates/footer.xhtml" />
+         </ui:insert>
+      </div>
 </html>

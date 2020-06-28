@@ -11,6 +11,13 @@
   <title>Account Löschen</title>
 </h:head>
 
+      <div style = "">
+         <ui:insert name = "header">
+            <ui:include src = "/templates/header.xhtml" />
+         </ui:insert> 
+      </div>
+      <br/>
+
 <h1>Möchten Sie Ihren Account wirklich löschen?</h1>
 
 <h:form id="DeleteUserForm">    
@@ -18,6 +25,11 @@
     <h:commandButton value="ja" action="#{UserBean.deleteUser}" />
     <h:commandButton value="nein" action="#{Menu}" />
   </h:panelGrid>
-  
   </h:form>
+  
+        <div style = "">
+         <ui:insert name = "footer" >
+            <ui:include src = "/templates/footer.xhtml" />
+         </ui:insert>
+      </div>
 </html>

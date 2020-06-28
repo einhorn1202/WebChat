@@ -10,7 +10,12 @@
 <h:head>
   <title>#{ChannelBean.getChannelName}</title>
 </h:head>
-
+      <div style = "">
+         <ui:insert name = "header">
+            <ui:include src = "/templates/header.xhtml" />
+         </ui:insert> 
+      </div>
+      <br/>
     <h:outputText value="#{ChannelBean.getChannelName}" />
     
     <h:dataTable class="table table-condensed table-striped" id="ChannelOverviewTable" value="#{ChannelBean.getAllChannels}" var="ChatChannels">
@@ -29,4 +34,10 @@
 	    <h:commandButton value="send" action="#{ChannelBean.addMessageToChannel}" />
 	  </h:panelGrid>
 	</h:form>
+	
+      <div style = "">
+         <ui:insert name = "footer" >
+            <ui:include src = "/templates/footer.xhtml" />
+         </ui:insert>
+      </div>
 </html>

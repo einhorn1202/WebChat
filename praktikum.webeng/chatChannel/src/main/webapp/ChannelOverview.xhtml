@@ -10,6 +10,12 @@
 <h:head>
     <title>ChatChannel</title>
 </h:head>
+      <div style = "">
+         <ui:insert name = "header">
+            <ui:include src = "/templates/header.xhtml" />
+         </ui:insert> 
+      </div>
+      <br/>
 <h:body>
     <f:view>
         <p>Hallo, #{user.firstName}.</p>
@@ -35,5 +41,10 @@
   			</h:form>
         </div>
     </f:view>
+            <div style = "">
+         <ui:insert name = "footer" >
+            <ui:include src = "/templates/footer.xhtml" />
+         </ui:insert>
+      </div>
 </h:body>
 </html>

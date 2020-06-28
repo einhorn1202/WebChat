@@ -10,7 +10,14 @@
 <h:head>
   <title>Registrierung</title>
 </h:head>
- 
+
+      <div style = "">
+         <ui:insert name = "header">
+            <ui:include src = "/templates/header.xhtml" />
+         </ui:insert> 
+      </div>
+      <br/>
+      
 <h1><h:outputText value="Registrierung"/></h1>
 <h:form id="registerform">
     <h:panelGrid id="grid" columns="4">
@@ -27,4 +34,10 @@
         <h:commandButton action="#{userBean.registerUser()}" value="Submit" />
     </h:panelGrid>
 </h:form>
+
+      <div style = "">
+         <ui:insert name = "footer" >
+            <ui:include src = "/templates/footer.xhtml" />
+         </ui:insert>
+      </div>
 </html>
