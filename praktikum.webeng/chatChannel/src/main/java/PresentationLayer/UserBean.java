@@ -53,7 +53,6 @@ public class UserBean implements Serializable {
 		else
 			return "registerFailure";
 	}
-<<<<<<< HEAD
 	
 	public String loginUser() {
 		//user = userManager.loginUser(username, password);
@@ -65,6 +64,5 @@ public class UserBean implements Serializable {
 		else
 			return "loginFailure";
 	}
-=======
->>>>>>> branch 'master' of https://github.com/einhorn1202/WebChat.git
+
 }
