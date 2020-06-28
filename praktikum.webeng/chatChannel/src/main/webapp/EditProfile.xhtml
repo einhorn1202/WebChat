@@ -6,13 +6,13 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:b="http://bootsfaces.net/ui"
     xmlns:h="http://xmlns.jcp.org/jsf/html">
     
 <h:head>
   <title>Profil bearbeiten</title>
 </h:head>
- 
+ <ui:composition template="/template/template.xhtml">
+<ui:define name="content">
 <h1><h:outputText value="Profil bearbeiten"/></h1>
 <h:form id="updateform">
     <h:panelGrid id="grid" columns="4">
@@ -34,4 +34,6 @@
         <h:commandButton action="#{userBean.updateUser()}" value="Submit" />
     </h:panelGrid>
 </h:form>
+</ui:define>
+</ui:composition>
 </html>

@@ -33,6 +33,10 @@
 			<from-outcome>registerFailure</from-outcome>
 			<to-view-id>/Register.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/Welcome.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 
 </faces-config>

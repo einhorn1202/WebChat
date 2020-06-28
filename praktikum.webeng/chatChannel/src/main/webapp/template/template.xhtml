@@ -19,30 +19,20 @@
   <h:body>
 	<div id="navigation">
 		<ui:insert name="navigation">
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  			<a class="navbar-brand" href="#">ChatChannel</a>
-		 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		    		<span class="navbar-toggler-icon"></span>
-		  		</button>
-			  <div class="collapse navbar-collapse" id="navbarNav">
-			    <ul class="navbar-nav">
-			      <li class="nav-item active" role="presentation">
-			        <a class="nav-link" href="#">Home</a>
-			      </li>
-			      <li class="nav-item" role="presentation">
-			        <a class="nav-link" href="#">Profile</a>
-			      </li>
-			      <li class="nav-item" role="presentation">
-			        <a class="nav-link" href="#">Logout</a>
-			      </li>
-			    </ul>
-			  </div>
-			</nav>
+<h:form id="MenuForm">    
+  <h:panelGrid id="grid" columns="3">
+    <h:commandButton value="Profil bearbeiten" action="#{EditUser}" />
+    <h:commandButton value="Ausloggen" action="#{Logout}" />
+    <h:commandButton value="Account Löschen" action="#{DeleteAccount}" />
+  </h:panelGrid>
+ </h:form>
 		</ui:insert>
 	</div>
+	
 	<div id="content">
 		<ui:insert name="content"></ui:insert>
 	</div>
+	
 	<div id="footer">
 		<ui:insert name="footer">
 			<footer class="page-footer font-small blue">

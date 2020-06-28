@@ -5,13 +5,13 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:b="http://bootsfaces.net/ui"
     xmlns:h="http://xmlns.jcp.org/jsf/html">
     
 <h:head>
   <title>#{ChannelBean.getChannelName}</title>
 </h:head>
-
+<ui:composition template="/template/template.xhtml">
+<ui:define name="content">
     <h:outputText value="#{ChannelBean.getChannelName}" />
     
     <h:dataTable class="table table-condensed table-striped" id="ChannelOverviewTable" value="#{ChannelBean.getAllChannels}" var="ChatChannels">
@@ -30,4 +30,6 @@
 	    <h:commandButton value="send" action="#{ChannelBean.addMessageToChannel}" />
 	  </h:panelGrid>
 	</h:form>
+	</ui:define>
+	</ui:composition>
 </html>
