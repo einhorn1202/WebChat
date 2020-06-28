@@ -6,20 +6,24 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:b="http://bootsfaces.net/ui"
     xmlns:h="http://xmlns.jcp.org/jsf/html">
     
 <h:head>
 	<title>ChatChannel</title>
 </h:head>
 
+<ui:composition template="/template/template.xhtml">
+<ui:define name="content">
 <h1>Willkommen bei ChatChannel.</h1>
 
-<h:form id="loginform">
-  <h:panelGrid id="grid" columns="3">
-    <h:commandButton value="register" action="#{Register}"/>
-    <h:commandButton value="login" action="#{Login}" />
-  </h:panelGrid>
-</h:form>
+	<h:form id="loginform">
+	  <h:panelGrid id="grid" columns="3">
+	    <h:commandButton value="register" action="#{Register}"/>
+	    <h:commandButton value="login" action="#{Login}" />
+	  </h:panelGrid>
+	</h:form>
+
+</ui:define>
+</ui:composition>
 
 </html>
