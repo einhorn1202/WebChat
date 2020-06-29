@@ -26,7 +26,7 @@
         <div>
         <h1>Deine Chats</h1>
         	<f:ajax event="keyup" render="ChannelOverview" listener="#{channelBean.serachChannel}">
-        	
+        		<h:inputText id="channelName" class="form-control" value="#{userBean_serachChannelName}" a:placeholder="Suche Channelname"></h:inputText>
         	</f:ajax>
        		<h:panelGrid id="grid" columns="3">
              <h:dataTable class="table table-condensed table-striped" id="ChannelOverviewTable" value="#{ChannelBean.getAllChannels}" var="ChatChannels">
