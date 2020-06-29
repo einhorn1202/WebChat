@@ -26,7 +26,7 @@
         <h1>Deine Chats</h1>
         <h:form>
         	<f:ajax event="keyup" render="ChannelOverviewTable" listener="#{channelBean.serachChannel}">
-        		<h:inputText id="channelName" class="form-control" value="#{userBean_serachChannelName}"></h:inputText>
+        		<h:inputText id="channelName" class="form-control" value="#{userBean.searchChannelName}"></h:inputText>
         	</f:ajax>
         
         
