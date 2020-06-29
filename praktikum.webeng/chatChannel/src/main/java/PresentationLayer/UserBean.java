@@ -16,8 +16,10 @@ public class UserBean implements Serializable {
 	/**
 	 * 
 	 */
-	User user;
-	UserManager userManager;
+	private User user;
+	private UserManager userManager;
+	private String loginUsername;
+	private String loginPassword;
 	
 	@PostConstruct
 	public void init() {
@@ -55,10 +57,8 @@ public class UserBean implements Serializable {
 	}
 	
 	public String loginUser() {
-		//user = userManager.loginUser(username, password);
+		user = userManager.loginUser(user.getUsername(), user.getPassword());
 		if(user != null){
-			//HttpSession session = request.getSession(true);
-			//session.setAttribute("user", user);
 			return "loginSuccess";
 		}
 		else

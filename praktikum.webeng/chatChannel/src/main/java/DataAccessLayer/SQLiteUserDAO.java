@@ -10,11 +10,12 @@ import TransferObjects.User;
 
 public class SQLiteUserDAO extends SQLiteDAO implements UserDAO{
 	
-	private static final String getUserStatement = "SELECT USERNAME, PASSWORD , PROFILE_PIC , COLOR FROM USER WHERE USER_ID = ?";
+	private static final String getUserByIdStatement = "SELECT USER_ID, USERNAME, PASSWORD , PROFILE_PIC , COLOR FROM USER WHERE USER_ID = ?";
 	private static final String updateUserStatement = "UPDATE USER SET USERNAME = ? , PASSWORD = ? , PROFILE_PIC = ? , COLOR =  ? WHERE USER_ID = ?";
 	private static final String addUserStatement = "INSERT INTO USER (USERNAME,PASSWORD,PROFILE_PIC,COLOR) VALUES (?,?,?,?)";
 	private static final String deleteUserStatement = "DELETE FROM USER WHERE USER_ID = ?";
 	private static final String getAllUsersStatement = "SELECT * FROM USER";
+	private static final String getUserByUsernameStatement = "SELECT USER_ID , USERNAME, PASSWORD , PROFILE_PIC , COLOR FROM USER WHERE USERNAME = ?";
 	
 	
 	public SQLiteUserDAO() {
@@ -22,12 +23,12 @@ public class SQLiteUserDAO extends SQLiteDAO implements UserDAO{
 	}
 
 	@Override
-	public User getUser(int id) {
+	public User getUserById(int id) {
 		// TODO Auto-generated method stub
 		PreparedStatement stmt;
 		User user = null;
 		try {
-			stmt = getConnection().prepareStatement(getUserStatement);
+			stmt = getConnection().prepareStatement(getUserByIdStatement);
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 			
@@ -122,6 +123,26 @@ public class SQLiteUserDAO extends SQLiteDAO implements UserDAO{
 		return userList;
 	}
 	
-	
+	@Override
+	public User getUserByUsername(String username) {
+		// TODO Auto-generated method stub
+		PreparedStatement stmt;
+		User user = null;
+		try {
+			stmt = getConnection().prepareStatement(getUserByUsernameStatement);
+			stmt.setString(1, username);
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				user = new User(rs.getInt("USER_ID"),rs.getString("USERNAME"),rs.getString("PASSWORD"), rs.getString("PROFILE_PIC"), rs.getString("COLOR"));
+			}
+			stmt.close();
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return user;
+	}
 
 }

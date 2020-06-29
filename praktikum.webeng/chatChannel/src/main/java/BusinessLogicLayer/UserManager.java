@@ -12,8 +12,8 @@ public class UserManager{
 		dao = DAOFactory.getSQLiteUserDAO();
 	}
 
-	public User getUser(int id) {
-		return dao.getUser(id);
+	public User getUserByID(int id) {
+		return dao.getUserById(id);
 	}
 
 	public void updateUser(User user) {
@@ -34,8 +34,20 @@ public class UserManager{
 		for(User oldUser : dao.getAllUsers()) {
 			if(oldUser.getUsername().compareTo(newUser.getUsername()) == 0) {
 				return false;
+				
 			}
 		}
 		return true;
+	}
+	
+	public User loginUser(String loginUsername, String loginPassword) {
+		User user = dao.getUserByUsername(loginUsername);
+		if(user == null)
+		return null;
+		else {
+			if(user.getPassword().compareTo(loginPassword) == 0)
+				return user;
+			else return null;
+		}
 	}
 }

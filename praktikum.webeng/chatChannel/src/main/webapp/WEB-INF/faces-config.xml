@@ -34,5 +34,19 @@
 			<to-view-id>/Register.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	
+	<navigation-rule>
+		<display-name>Login.xhtml</display-name>
+		<from-view-id>/Login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>loginSuccess</from-outcome>
+			<to-view-id>/ChannelOverview.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>loginFailure</from-outcome>
+			<to-view-id>/Login.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>
