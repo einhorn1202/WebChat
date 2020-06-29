@@ -24,15 +24,29 @@
     <h:panelGrid id="grid" columns="4">
     	<h:outputText value="UserID" for="userID"/>
         <h:inputText id="userID" value="#{userBean.user.userID}" required="true"/>
-        <h:outputText value="Nutzername" for="userName"/>
-        <h:inputText id="userName" value="#{userBean.user.username}" required="true"/>
+        
+        <h:outputText value="Benutzername" for="userName"/>
+        <h:inputText id="userName" value="#{userBean.user.username}" required="true" 
+        requiredMessage = "Der Benutzername ist ein Pflichtfeld!"
+        validatorMessage = "Der Name muss min. 2 und max. 30 Zeichen haben!">
+    		<f:validateLength minimum="2" maximum="30"/>
+    		<f:validateRegex pattern="[A-Z][a-z]*"/>
+    	</h:inputText>
+   		<h:message for="userName" errorStyle="color: red" class="help-block alert-danger"/>
+           
+        
         <h:outputText value="Passwort" for="password"/>
-        <h:inputSecret id="password" value="#{userBean.user.password}" required="true"/>
+        <h:inputSecret id="password" value="#{userBean.user.password}" required="true">
+        	<f:validateLength minimum="2" maximum="30"/>
+    		<f:validateRegex pattern="^(?:(?=.*[a-z])(?:(?=.*[A-Z])(?=.*[\d\W])|(?=.*\W)(?=.*\d))|(?=.*\W)(?=.*[A-Z])(?=.*\d)).{8,}$"/>
+    	</h:inputSecret>
+        
         <h:outputText value="Profile_pic" for="profile_pic"/>
         <h:inputText id="profile_pic" value="#{userBean.user.profilePic}" required="true"/>
+        
         <h:outputText value="Color" for="color"/>
         <h:inputText id="color" value="#{userBean.user.color}" required="true"/>
-        <h:commandButton action="#{userBean.registerUser()}" value="Submit" />
+        <h:commandButton action="#{userBean.registerUser}" value="Submit" />
     </h:panelGrid>
 </h:form>
 
