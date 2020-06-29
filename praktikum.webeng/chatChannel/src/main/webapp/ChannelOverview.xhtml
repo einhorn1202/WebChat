@@ -19,36 +19,8 @@
       <br/>
 <h:body>
     <f:view>
-        <p>Hallo, #{user.firstName}.</p>
+        <p>Hallo,<h:outputText value="#{userBean.user.username}"/></p>
         <p>Lege los und chatte mit deinen Freunden in einem ChatChannel deiner Wahl.</p>
-
-        <div>
-        <h1>Deine Chats</h1>
-        <h:outputLabel value="#{userBean.user.username}"/>
-        <h:form>
-        	<f:ajax event="keyup" render="ChannelOverviewTable" listener="#{channelBean.serachChannel}">
-        		<h:inputText id="channelName" class="form-control" value="#{userBean.searchChannelName}"></h:inputText>
-        	</f:ajax>
-        
-        
-       		<h:panelGrid id="grid" columns="3">
-             <h:dataTable class="table table-condensed table-striped" id="ChannelOverviewTable" value="#{ChannelBean.getAllChannels}" var="ChatChannels">
-                 <h:column>
-                     <h:outputText value="#{Channel.name}"/>
-                 </h:column>
-                 <h:column>
-                     <h:outputText value="#{ChannelBean.getUsersOfChannel}"/>
-                 </h:column>
-             </h:dataTable>
-             </h:panelGrid>
-            </h:form>
-             
-        	<h:form id="AddChannelForm">
-	  			<h:panelGrid id="grid" columns="3">
-	    			<h:commandButton value="+" action="#{ChannelBean.setChannel}" />
-	  			</h:panelGrid>
-  			</h:form>
-        </div>
     </f:view>
             <div style = "">
          <ui:insert name = "footer" >
