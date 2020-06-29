@@ -10,6 +10,12 @@
 <h:head>
     <title>ChatChannel</title>
 </h:head>
+      <div style = "">
+         <ui:insert name = "header">
+            <ui:include src = "/templates/header.xhtml" />
+         </ui:insert> 
+      </div>
+      <br/>
 <h:body>
 <ui:composition template="/template/template.xhtml">
 <ui:define name="content">
@@ -19,6 +25,9 @@
 
         <div>
         <h1>Deine Chats</h1>
+        	<f:ajax event="keyup" render="ChannelOverview" listener="#{channelBean.serachChannel}">
+        	
+        	</f:ajax>
        		<h:panelGrid id="grid" columns="3">
              <h:dataTable class="table table-condensed table-striped" id="ChannelOverviewTable" value="#{ChannelBean.getAllChannels}" var="ChatChannels">
                  <h:column>
@@ -37,7 +46,13 @@
   			</h:form>
         </div>
     </f:view>
+
     </ui:define>
     </ui:composition>
+            <div style = "">
+         <ui:insert name = "footer" >
+            <ui:include src = "/templates/footer.xhtml" />
+         </ui:insert>
+      </div>
 </h:body>
 </html>

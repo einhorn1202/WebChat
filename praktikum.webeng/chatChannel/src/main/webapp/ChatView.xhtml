@@ -12,6 +12,12 @@
 </h:head>
 <ui:composition template="/template/template.xhtml">
 <ui:define name="content">
+      <div style = "">
+         <ui:insert name = "header">
+            <ui:include src = "/templates/header.xhtml" />
+         </ui:insert> 
+      </div>
+      <br/>
     <h:outputText value="#{ChannelBean.getChannelName}" />
     
     <h:dataTable class="table table-condensed table-striped" id="ChannelOverviewTable" value="#{ChannelBean.getAllChannels}" var="ChatChannels">
@@ -32,4 +38,9 @@
 	</h:form>
 	</ui:define>
 	</ui:composition>
+<div style = "">
+         <ui:insert name = "footer" >
+            <ui:include src = "/templates/footer.xhtml" />
+         </ui:insert>
+      </div>
 </html>

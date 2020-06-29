@@ -10,8 +10,17 @@
 <h:head>
   <title>ChatChannel erstellen</title>
 </h:head>
+
 <ui:composition template="/template/template.xhtml">
 <ui:define name="content">
+
+      <div style = "">
+         <ui:insert name = "header">
+            <ui:include src = "/templates/header.xhtml" />
+         </ui:insert> 
+      </div>
+      <br/>
+      
 <h1>ChatChannel erstellen</h1>
 
 <h:form id="CreateChannelForm">
@@ -29,6 +38,13 @@
     <h:commandButton value="login" action="#{ChannelBean.addChannel}" />
     <h:commandButton value="cancel" action="#{ChannelOverview}" />
   </h:panelGrid>
+  
+        <div style = "">
+         <ui:insert name = "footer" >
+            <ui:include src = "/templates/footer.xhtml" />
+         </ui:insert>
+      </div>
+      
 </h:form>
 </ui:define>
 </ui:composition>

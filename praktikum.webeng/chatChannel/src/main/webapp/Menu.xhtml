@@ -12,6 +12,13 @@
   <title>Menu</title>
 </h:head>
 
+      <div style = "">
+         <ui:insert name = "header">
+            <ui:include src = "/templates/header.xhtml" />
+         </ui:insert> 
+      </div>
+      <br/>
+
 <h1>Menu</h1>
 <h:form id="MenuForm">    
   <h:panelGrid id="grid" columns="3">
@@ -21,4 +28,11 @@
   </h:panelGrid>
  </h:form>
 
+  </h:form>
+  
+        <div style = "">
+         <ui:insert name = "footer" >
+            <ui:include src = "/templates/footer.xhtml" />
+         </ui:insert>
+      </div>
 </html>

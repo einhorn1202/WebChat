@@ -4,8 +4,6 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import javax.servlet.http.HttpSession;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -56,16 +54,5 @@ public class UserBean implements Serializable {
 		}
 		else
 			return "registerFailure";
-	}
-	
-	public String loginUser() {
-		user = userManager.loginUser(username, password);
-		if(user != null){
-			HttpSession session = request.getSession(true);
-			session.setAttribute("user", user);
-			return "loginSuccess";
-		}
-		else
-			return "loginFailure";
 	}
 }
