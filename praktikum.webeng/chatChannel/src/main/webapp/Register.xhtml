@@ -28,7 +28,7 @@
         <h:outputText value="Benutzername" for="userName"/>
         <h:inputText id="userName" value="#{userBean.user.username}" required="true" 
         requiredMessage = "Der Benutzername ist ein Pflichtfeld!"
-        validatorMessage = "Der Name muss min. 2 und max. 30 Zeichen haben!">
+        validatorMessage = "Der Name muss mit einem Großbuchstaben beginnen und min. 2 und max. 30 Zeichen haben">
     		<f:validateLength minimum="2" maximum="30"/>
     		<f:validateRegex pattern="[A-Z][a-z]*"/>
     	</h:inputText>
@@ -36,7 +36,9 @@
            
         
         <h:outputText value="Passwort" for="password"/>
-        <h:inputSecret id="password" value="#{userBean.user.password}" required="true">
+        <h:inputSecret id="password" value="#{userBean.user.password}" required="true"
+        requiredMessage = "Der Passwort ist ein Pflichtfeld!"
+        validatorMessage = "Das Passwort muss aus Großbuchstaben, Kleinbuchstaben, Zahl und Sonderzeichen bestehen. ">
         	<f:validateLength minimum="2" maximum="30"/>
     		<f:validateRegex pattern="^(?:(?=.*[a-z])(?:(?=.*[A-Z])(?=.*[\d\W])|(?=.*\W)(?=.*\d))|(?=.*\W)(?=.*[A-Z])(?=.*\d)).{8,}$"/>
     	</h:inputSecret>
