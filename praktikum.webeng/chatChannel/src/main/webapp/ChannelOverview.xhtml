@@ -16,16 +16,23 @@
             <ui:include src = "/templates/header.xhtml" />
          </ui:insert> 
       </div>
-      <br/>
 <h:body>
     <f:view>
         <p>Hallo,<h:outputText value="#{userBean.user.username}"/></p>
         <p>Lege los und chatte mit deinen Freunden in einem ChatChannel deiner Wahl.</p>
     </f:view>
-            <div style = "">
          <ui:insert name = "footer" >
             <ui:include src = "/templates/footer.xhtml" />
          </ui:insert>
-      </div>
+             <h:dataTable class="table table-condensed table-striped" id="ChannelOverviewTable" value="channelBean.channelList" var="channel">
+                 <h:column>
+                     <h:outputText name="ChannelName" value="channel.channelName"/>
+                 </h:column>
+             </h:dataTable>
+        <h:form id="AddChannelForm">
+	  			<h:panelGrid id="grid" columns="3">
+	    			<h:commandButton value="+" action="AddChannel.xhtml" />
+	  			</h:panelGrid>
+  		</h:form>
 </h:body>
 </html>

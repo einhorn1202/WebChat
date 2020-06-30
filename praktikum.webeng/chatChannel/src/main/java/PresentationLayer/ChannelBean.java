@@ -7,7 +7,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 import BusinessLogicLayer.ChannelManager;
-import TransferObjects.Channel;
+import TransferObjects.*;
+
 
 @Named
 @RequestScoped
@@ -16,6 +17,7 @@ public class ChannelBean {
 	private ChannelManager channelManager;
 	private Channel channel;
 	private ArrayList<Channel> channelList;
+	private ArrayList<User> userList;
 	
 	@PostConstruct
 	public void init() {
@@ -24,8 +26,9 @@ public class ChannelBean {
 		}
 		if(channel == null) {
 			channel = new Channel();
-			channelList = channelManager.getAllChannels();
 		}
+		if(channelManager != null)
+		channelList = channelManager.getAllChannels();
 	}
 	
 	public Channel getChannel() {
@@ -48,5 +51,14 @@ public class ChannelBean {
 	 * ACTION-METHODEN DER BEAN
 	 */
 	
+	public String addChannel() {
+		if(channelManager.isChannelNameValid(channel)) {
+			channel.setActiveuserList(new ArrayList<User>());
+			channel.setMessageList(new ArrayList<Message>());
+			channelManager.addChannel(channel);
+			return "addChannelSuccess";
+		}
+		else return "addChannelFailure";
+	}
 
 }

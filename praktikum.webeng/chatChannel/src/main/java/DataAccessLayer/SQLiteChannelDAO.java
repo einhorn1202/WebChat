@@ -7,9 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 
-import TransferObjects.Channel;
-import TransferObjects.Message;
-import TransferObjects.User;
+import TransferObjects.*;
+
 
 public class SQLiteChannelDAO extends SQLiteDAO implements ChannelDAO{
 	

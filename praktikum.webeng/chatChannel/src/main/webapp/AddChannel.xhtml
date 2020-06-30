@@ -24,24 +24,21 @@
 <h:form id="CreateChannelForm">
   <h:panelGrid id="grid" columns="3">
     <h:outputText value="Channelname"/>
-    <h:inputText value="#{ChannelBean.addChannel}" /><br/><br/>
-
-	 <h:outputText value="Bild hochladen "/>
-  	<h:inputFile id="file" value="#{ChannelBean.setChannelPic}"/>
-  	<h:commandButton value="Upload" action="#{bean.upload}"/>
-    
-    <h:outputText value="Beschreibung: "/>
-    <h:inputText value="#{ChannelBean.addDescription}" /><br/><br/>
-
-    <h:commandButton value="login" action="#{ChannelBean.addChannel}" />
-    <h:commandButton value="cancel" action="#{ChannelOverview}" />
+    <h:inputText value="#{channelBean.channel.channelName}" /><br/><br/>
+    <h:outputText value="Bild hochladen "/>
+    <h:inputText value="#{channelBean.channel.channelPic}" /><br/><br/>
+	<!-- 
+  	     <h:inputFile id="file" value="#{ChannelBean.channel.ChannelPic}"/>
+  	 -->
+    <h:commandButton value="login" action="#{channelBean.addChannel}" />
+    <h:commandButton value="cancel" action="#{ChannelOverview.xhtml}" />
   </h:panelGrid>
-  
-        <div style = "">
+</h:form>
+
+
+ <div style = "">
          <ui:insert name = "footer" >
             <ui:include src = "/templates/footer.xhtml" />
          </ui:insert>
       </div>
-      
-</h:form>
 </html>

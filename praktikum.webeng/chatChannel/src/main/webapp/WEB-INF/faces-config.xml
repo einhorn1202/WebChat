@@ -48,4 +48,17 @@
 			<to-view-id>/Login.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>addChannel.xhtml</display-name>
+		<from-view-id>/AddChannel.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>addChannelSuccess</from-outcome>
+			<to-view-id>/ChannelOverview.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>addChannelFailure</from-outcome>
+			<to-view-id>/AddChannel.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>
