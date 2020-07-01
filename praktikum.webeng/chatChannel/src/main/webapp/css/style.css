@@ -1,6 +1,17 @@
 #menu{
-	
 	position: fixed; 
     bottom: 0; 
     right: 0; 
+}
+
+body {
+     color: grey;
+     font-family: 'Arial', sans-serif;
+     font-size: 15vw;  
+}
+
+h1 {
+     color: grey;
+     font-family: 'Arial', sans-serif;
+     font-size: 15vw;  
 }

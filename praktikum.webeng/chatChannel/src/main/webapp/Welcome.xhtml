@@ -10,6 +10,8 @@
     
 <h:head>
 	<title>ChatChannel</title>
+	
+	<h:outputStylesheet library = "css" name = "style.css" /> 
 </h:head>
 
 <div style = "">
@@ -21,6 +23,13 @@
       
 
 <h1>Willkommen bei ChatChannel.</h1>
+			<h:form id="loginform">
+	  <h:panelGrid id="grid" columns="3">
+	    <h:commandButton value="register" action="#{Register}"/>
+	    <h:commandButton value="login" action="#{Login}" />
+	  </h:panelGrid>
+	</h:form>
+
 
       <div style = "">
          <ui:insert name = "footer" >
@@ -28,11 +37,6 @@
          </ui:insert>
       </div>
 
-	<h:form id="loginform">
-	  <h:panelGrid id="grid" columns="3">
-	    <h:commandButton value="register" action="#{Register}"/>
-	    <h:commandButton value="login" action="#{Login}" />
-	  </h:panelGrid>
-	</h:form>
+
 	
 </html>
