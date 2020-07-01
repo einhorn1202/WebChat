@@ -6,6 +6,12 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.FacesValidator;
+import javax.faces.validator.Validator;
+import javax.faces.validator.ValidatorException;
 
 import BusinessLogicLayer.UserManager;
 import TransferObjects.User;
@@ -48,7 +54,7 @@ public class UserBean implements Serializable {
 	
 	
 	public String registerUser() {
-		if(userManager.isUsernameValid(user)){
+		if(userManager.isUsernameValid(user.getUsername())){
 			userManager.addUser(user);
 			return "registerSuccess";
 		}
@@ -63,6 +69,18 @@ public class UserBean implements Serializable {
 		}
 		else
 			return "loginFailure";
+	}
+	
+	//Validators
+	
+	public void usernameValidate(FacesContext ctx, UIComponent ui, Object value) throws ValidatorException{
+		String val = (String) value;
+		if(val.compareTo("") != 0) {
+			if(userManager.isUsernameValid(val)) {
+				throw new ValidatorException(new FacesMessage("Nutzername bereits vergeben!"));
+			}
+		}
+		else throw new ValidatorException(new FacesMessage("Nutzername ist ein Pflichtfeld!"));
 	}
 
 }

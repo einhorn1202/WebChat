@@ -26,29 +26,22 @@
         <h:inputText id="userID" value="#{userBean.user.userID}" required="true"/>
         
         <h:outputText value="Benutzername" for="userName"/>
-        <h:inputText id="userName" value="#{userBean.user.username}" required="true" 
-        requiredMessage = "Der Benutzername ist ein Pflichtfeld!"
-        validatorMessage = "Der Name muss mit einem Großbuchstaben beginnen und min. 2 und max. 30 Zeichen haben">
-    		<f:validateLength minimum="2" maximum="30"/>
-    		<f:validateRegex pattern="[A-Z][a-z]*"/>
+        <h:inputText id="userName" value="#{userBean.user.username}" required="true" validator="#{userBean.usernameValidate}">
+    		<f:ajax render="errorUsername" execute="@this" event="valueChange"/>
     	</h:inputText>
-   		<h:message for="userName" errorStyle="color: red" class="help-block alert-danger"/>
-           
-        
+   		<h:message for="userName" id="errorUsername" errorStyle="color: red" class="help-block alert-danger"/>
         <h:outputText value="Passwort" for="password"/>
-        <h:inputSecret id="password" value="#{userBean.user.password}" required="true"
-        requiredMessage = "Der Passwort ist ein Pflichtfeld!"
-        validatorMessage = "Das Passwort muss aus Großbuchstaben, Kleinbuchstaben, Zahl und Sonderzeichen bestehen. ">
-        	<f:validateLength minimum="2" maximum="30"/>
-    		<f:validateRegex pattern="^(?:(?=.*[a-z])(?:(?=.*[A-Z])(?=.*[\d\W])|(?=.*\W)(?=.*\d))|(?=.*\W)(?=.*[A-Z])(?=.*\d)).{8,}$"/>
-    	</h:inputSecret>
-        
+        <h:inputText id="password" value="#{userBean.user.password}" required="true">
+        	<f:validator validatorId="PasswordValidator"/>
+    	</h:inputText>
+    	<h:message for="password" style="color:red"/>
         <h:outputText value="Profile_pic" for="profile_pic"/>
         <h:inputText id="profile_pic" value="#{userBean.user.profilePic}" required="true"/>
         
         <h:outputText value="Color" for="color"/>
         <h:inputText id="color" value="#{userBean.user.color}" required="true"/>
         <h:commandButton action="#{userBean.registerUser}" value="Submit" />
+        <h:commandButton action="Welcome.xhtml" value="Abbrechen" id="abbrechen" class="btn btn-danger" immediate="true"/>
     </h:panelGrid>
 </h:form>
 
