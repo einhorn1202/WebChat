@@ -24,10 +24,17 @@
          <ui:insert name = "footer" >
             <ui:include src = "/templates/footer.xhtml" />
          </ui:insert>
-             <h:dataTable class="table table-condensed table-striped" id="ChannelOverviewTable" value="#{channelBean.channelList}" var="channel">
+             <h:dataTable  id="ChannelOverviewTable" value="#{channelBean.channelList}" var="channel">
                  <h:column>
+                 		<f:facet name = "header">Channelname</f:facet>  
                      <h:outputText name="ChannelName" value="#{channel.channelName}"/>
                  </h:column>
+                 <h:column>
+                 <h:form>
+                 		<h:commandButton value="Join" action="#{channelBean.joinChannel(channel)}"/>
+                 </h:form>
+                 </h:column>
+                 
              </h:dataTable>
         <h:form id="AddChannelForm">
 	  			<h:panelGrid id="grid" columns="3">

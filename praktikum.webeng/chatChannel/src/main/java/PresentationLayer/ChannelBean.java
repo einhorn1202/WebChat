@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
+import javax.inject.*;
 
 import BusinessLogicLayer.ChannelManager;
 import TransferObjects.*;
@@ -18,6 +18,9 @@ public class ChannelBean {
 	private Channel channel;
 	private ArrayList<Channel> channelList;
 	private ArrayList<User> userList;
+	
+	@Inject
+	User user;
 	
 	@PostConstruct
 	public void init() {
@@ -59,6 +62,12 @@ public class ChannelBean {
 			return "addChannelSuccess";
 		}
 		else return "addChannelFailure";
+	}
+	
+	public String joinChannel(Channel currentChannel) {
+		this.channel = currentChannel;
+		channelManager.addUserToChannel(channel, user);
+		return "joinChannelSuccess";
 	}
 
 }

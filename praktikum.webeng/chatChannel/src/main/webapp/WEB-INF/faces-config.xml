@@ -61,4 +61,13 @@
 			<to-view-id>/AddChannel.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>joinChannel.xhtml</display-name>
+		<from-view-id>/ChannelOverview.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>joinChannelSuccess</from-outcome>
+			<to-view-id>/ChatView.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>
