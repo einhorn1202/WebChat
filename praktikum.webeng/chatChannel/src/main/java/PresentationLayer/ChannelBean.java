@@ -28,7 +28,7 @@ public class ChannelBean {
 			channel = new Channel();
 		}
 		if(channelManager != null)
-		channelList = channelManager.getAllChannels();
+			channelList = channelManager.getAllChannels();
 	}
 	
 	public Channel getChannel() {

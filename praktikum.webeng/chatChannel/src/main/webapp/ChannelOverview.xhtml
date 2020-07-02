@@ -24,9 +24,9 @@
          <ui:insert name = "footer" >
             <ui:include src = "/templates/footer.xhtml" />
          </ui:insert>
-             <h:dataTable class="table table-condensed table-striped" id="ChannelOverviewTable" value="channelBean.channelList" var="channel">
+             <h:dataTable class="table table-condensed table-striped" id="ChannelOverviewTable" value="#{channelBean.channelList}" var="channel">
                  <h:column>
-                     <h:outputText name="ChannelName" value="channel.channelName"/>
+                     <h:outputText name="ChannelName" value="#{channel.channelName}"/>
                  </h:column>
              </h:dataTable>
         <h:form id="AddChannelForm">
