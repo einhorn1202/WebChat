@@ -21,25 +21,35 @@
         <p>Hallo,<h:outputText value="#{userBean.user.username}"/></p>
         <p>Lege los und chatte mit deinen Freunden in einem ChatChannel deiner Wahl.</p>
     </f:view>
-         <ui:insert name = "footer" >
+    
+    <h:form>
+	    <f:ajax event="keyup" render="ChannelOverviewTable" listener="#{channelBean.searchChannelNameList}">
+            <p>Search for a Channel!</p>
+            <h:inputText id="channelName" class="form-control" value="#{channelBean.searchChannelName}"></h:inputText>
+	    </f:ajax>
+     
+        <h:dataTable  id="ChannelOverviewTable" value="#{channelBean.channelList}" var="channel">
+            <h:column>
+            	<f:facet name = "header">Channelname</f:facet>  
+               <h:outputText name="ChannelName" value="#{channel.channelName}"/>
+            </h:column>
+            
+            <h:column>
+            	<h:form>
+            		<h:commandButton value="Join" action="#{channelBean.joinChannel(channel)}"/>
+            	</h:form>
+            </h:column>
+        </h:dataTable>
+     </h:form>
+        
+     <h:form id="AddChannelForm">
+		<h:panelGrid id="grid" columns="3">
+   			<h:commandButton value="+" action="AddChannel.xhtml" />
+		</h:panelGrid>
+	 </h:form>
+		
+  		<ui:insert name = "footer" >
             <ui:include src = "/templates/footer.xhtml" />
          </ui:insert>
-             <h:dataTable  id="ChannelOverviewTable" value="#{channelBean.channelList}" var="channel">
-                 <h:column>
-                 		<f:facet name = "header">Channelname</f:facet>  
-                     <h:outputText name="ChannelName" value="#{channel.channelName}"/>
-                 </h:column>
-                 <h:column>
-                 <h:form>
-                 		<h:commandButton value="Join" action="#{channelBean.joinChannel(channel)}"/>
-                 </h:form>
-                 </h:column>
-                 
-             </h:dataTable>
-        <h:form id="AddChannelForm">
-	  			<h:panelGrid id="grid" columns="3">
-	    			<h:commandButton value="+" action="AddChannel.xhtml" />
-	  			</h:panelGrid>
-  		</h:form>
 </h:body>
 </html>

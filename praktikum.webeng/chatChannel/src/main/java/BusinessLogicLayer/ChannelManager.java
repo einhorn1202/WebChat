@@ -84,4 +84,15 @@ public class ChannelManager{
 		return true;
 	} 
 		
+	public ArrayList<Channel> searchChannel(String searchChannelName) {
+        ArrayList<Channel> channelList = dao.getAllChannels();
+
+        for(Channel channel : channelList) {
+            //String channelName = channel.getChannelName().toLowerCase;
+            if(!channel.getChannelName().contains(searchChannelName)) {
+                channelList.remove(channel);
+            }
+        }
+        return channelList;
+    }
 }

@@ -19,6 +19,8 @@ public class ChannelBean {
 	private ArrayList<Channel> channelList;
 	private ArrayList<User> userList;
 	
+	//private ArrayList<Channel> searchChannelList;
+	
 	@Inject
 	User user;
 	
@@ -32,7 +34,8 @@ public class ChannelBean {
 		}
 		if(channelManager != null)
 			channelList = channelManager.getAllChannels();
-	}
+			//searchChannelList = new ArrayList<Channel>();
+		}
 	
 	public Channel getChannel() {
 		return channel;
@@ -69,5 +72,33 @@ public class ChannelBean {
 		channelManager.addUserToChannel(channel, user);
 		return "joinChannelSuccess";
 	}
+	
+	/*
+     * Suchfilter-Methoden 
+     */
+    private String searchChannelName = "";
+
+    public void setSearchChannelName(String searchChannelName) {
+        this.searchChannelName = searchChannelName;
+    }
+
+    public String getSearchChannelName() {
+        return searchChannelName;
+    }
+
+    public void searchChannelNameList() {
+        boolean filter = false;
+        Channel searchChannel = new Channel();
+        if(searchChannelName.length() > 0) {
+            filter = true;
+            searchChannel.setChannelName(searchChannelName);
+        }
+        if(filter) {
+        	channelList = channelManager.searchChannel(searchChannelName);
+            System.out.println(channelList);
+        }
+        else
+        	channelList = channelManager.getAllChannels();
+    }
 
 }
