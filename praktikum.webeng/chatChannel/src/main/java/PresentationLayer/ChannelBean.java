@@ -88,14 +88,9 @@ public class ChannelBean {
 
     public void searchChannelNameList() {
         boolean filter = false;
-        Channel searchChannel = new Channel();
+  
         if(searchChannelName.length() > 0) {
-            filter = true;
-            searchChannel.setChannelName(searchChannelName);
-        }
-        if(filter) {
         	channelList = channelManager.searchChannel(searchChannelName);
-            System.out.println(channelList);
         }
         else
         	channelList = channelManager.getAllChannels();

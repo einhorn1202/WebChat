@@ -85,14 +85,12 @@ public class ChannelManager{
 	} 
 		
 	public ArrayList<Channel> searchChannel(String searchChannelName) {
-        ArrayList<Channel> channelList = dao.getAllChannels();
-
-        for(Channel channel : channelList) {
-            //String channelName = channel.getChannelName().toLowerCase;
-            if(!channel.getChannelName().contains(searchChannelName)) {
-                channelList.remove(channel);
+		ArrayList<Channel> searchChannelList = new ArrayList<Channel>();
+        for(Channel channel : dao.getAllChannels()) {
+            if(channel.getChannelName().contains(searchChannelName)) {
+                searchChannelList.add(channel);
             }
         }
-        return channelList;
+        return searchChannelList;
     }
 }
