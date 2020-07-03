@@ -36,7 +36,7 @@
             
             <h:column>
             	<h:form>
-            		<h:commandButton value="Join" action="#{channelBean.joinChannel(channel)}"/>
+            		<h:commandButton value="#{channel.channelName}" action="#{channelBean.joinChannel(channel)}"/>
             	</h:form>
             </h:column>
         </h:dataTable>

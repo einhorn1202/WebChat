@@ -14,7 +14,7 @@ public class ChannelManager{
 	ChannelDAO dao;
 	
 	public ChannelManager() {
-		dao = DAOFactory.getSQLiteChannelDAO();
+		dao = DAOFactory.getChannelDAO();
 	}
 
 

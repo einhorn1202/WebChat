@@ -6,7 +6,7 @@ public class DAOFactory {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static ChannelDAO getSQLiteChannelDAO() {
+	public static ChannelDAO getChannelDAO() {
 		return new SQLiteChannelDAO();
 	}
 	
