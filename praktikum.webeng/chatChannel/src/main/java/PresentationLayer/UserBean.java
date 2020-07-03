@@ -76,7 +76,7 @@ public class UserBean implements Serializable {
 	public void usernameValidate(FacesContext ctx, UIComponent ui, Object value) throws ValidatorException{
 		String val = (String) value;
 		if(val.compareTo("") != 0) {
-			if(userManager.isUsernameValid(val)) {
+			if(!userManager.isUsernameValid(val)) {
 				throw new ValidatorException(new FacesMessage("Nutzername bereits vergeben!"));
 			}
 		}

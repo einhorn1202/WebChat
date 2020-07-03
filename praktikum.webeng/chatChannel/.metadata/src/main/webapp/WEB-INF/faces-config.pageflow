@@ -1,2 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15934267329680" configfile="/chatChannel/src/main/webapp/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15934267329680" configfile="/chatChannel/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="register.xhtml" x="122" y="178" id="pf15937625710140" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15937625710151 pf15937625710152 pf159376270401212" inlinks="pf15937625710152" path="/Register.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="joinChannel.xhtml" x="338" y="562" id="pf15937625710153" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf15937625710154" inlinks="pf15937625710151 pf15937625710155 pf15937625710156" path="/ChannelOverview.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Login.xhtml" x="122" y="562" id="pf15937625710157" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" outlinks="pf15937625710155 pf15937625710158" inlinks="pf15937625710158" path="/Login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="addChannel.xhtml" x="122" y="946" id="pf15937625710159" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" outlinks="pf15937625710156 pf159376257101510" inlinks="pf159376257101510" path="/AddChannel.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ChatView.xhtml" x="554" y="562" id="pf159376257101511" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf15937625710154" path="/ChatView.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Welcome.xhtml" id="pf159376270401213" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf159376270401212" path="/Welcome.xhtml"/>
+  <links id="pf15937625710151" target="pf15937625710153" source="pf15937625710140" outcome="registerSuccess"/>
+  <links id="pf15937625710155" target="pf15937625710153" source="pf15937625710157" outcome="loginSuccess"/>
+  <links id="pf15937625710156" target="pf15937625710153" source="pf15937625710159" outcome="addChannelSuccess"/>
+  <links id="pf15937625710154" target="pf159376257101511" source="pf15937625710153" outcome="joinChannelSuccess"/>
+  <links id="pf15937625710152" target="pf15937625710140" source="pf15937625710140" outcome="registerFailure">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf15937625710158" target="pf15937625710157" source="pf15937625710157" outcome="loginFailure">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf159376257101510" target="pf15937625710159" source="pf15937625710159" outcome="addChannelFailure">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf159376270401212" target="pf159376270401213" source="pf15937625710140" outcome="registerCancel"/>
+</pageflow:Pageflow>
