@@ -3,26 +3,29 @@ package PresentationLayer;
 import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
+import javax.annotation.PreDestroy;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.*;
 
 import BusinessLogicLayer.ChannelManager;
 import TransferObjects.*;
+import PresentationLayer.*;
 
 
 @Named
-@RequestScoped
+@ApplicationScoped
 public class ChannelBean {
 	
 	private ChannelManager channelManager;
 	private Channel channel;
 	private ArrayList<Channel> channelList;
 	private ArrayList<User> userList;
+	private String valueOfMessage;
 	
 	//private ArrayList<Channel> searchChannelList;
 	
 	@Inject
-	User user;
+	UserBean userBean;
 	
 	@PostConstruct
 	public void init() {
@@ -34,8 +37,21 @@ public class ChannelBean {
 		}
 		if(channelManager != null)
 			channelList = channelManager.getAllChannels();
-			//searchChannelList = new ArrayList<Channel>();
-		}
+	}
+	
+	@PreDestroy
+	public void destroy() {
+		if(channelManager != null)
+		  channelManager.clearTableUserInChannel();
+	}
+	
+	public String getValueOfMessage() {
+		return valueOfMessage;
+	}
+
+	public void setValueOfMessage(String valueOfMessage) {
+		this.valueOfMessage = valueOfMessage;
+	}
 	
 	public Channel getChannel() {
 		return channel;
@@ -67,10 +83,16 @@ public class ChannelBean {
 		else return "addChannelFailure";
 	}
 	
-	public String joinChannel(Channel currentChannel) {
-		this.channel = currentChannel;
+	public String joinChannel(Channel channel, User user) {
 		channelManager.addUserToChannel(channel, user);
+		this.channel = channelManager.getChannel(channel.getChannelID());
 		return "joinChannelSuccess";
+	}
+	
+	public String leaveChannel(User user) {
+		channelManager.removeUserFromChannel(channel, user);
+		this.channel = channelManager.getChannel(channel.getChannelID());
+		return "leaveChannelSuccess";
 	}
 	
 	/*
@@ -91,6 +113,12 @@ public class ChannelBean {
         	channelList = channelManager.searchChannel(searchChannelName);
         else
         	channelList = channelManager.getAllChannels();
+    }
+    
+    public String sendMessage(User user) {
+    	channelManager.addMessageToChannel(channel, user, valueOfMessage);
+    	this.channel = channelManager.getChannel(channel.getChannelID());
+    	return "";
     }
 
 }

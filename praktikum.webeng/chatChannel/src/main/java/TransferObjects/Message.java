@@ -6,25 +6,25 @@ public class Message implements Serializable{
 	private int messageID;
 	private String value;
 	private int messageChannelID;
-	private int messageUserID;
+	private String messageUsername;
 	
 	public Message() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Message(String value, int messageChannelID, int messageUserID) {
+	public Message(String value, int messageChannelID, String messageUsername) {
 		super();
 		this.value = value;
 		this.messageChannelID = messageChannelID;
-		this.messageUserID = messageUserID;
+		this.messageUsername = messageUsername;
 	}
 	
-	public Message(int messageID, String value, int messageChannelID, int messageUserID) {
+	public Message(int messageID, String value, int messageChannelID, String messageUsername) {
 		super();
 		this.messageID = messageID;
 		this.value = value;
 		this.messageChannelID = messageChannelID;
-		this.messageUserID = messageUserID;
+		this.messageUsername = messageUsername;
 	}
 
 	/**
@@ -72,15 +72,15 @@ public class Message implements Serializable{
 	/**
 	 * @return the messageUserID
 	 */
-	public int getMessageUserID() {
-		return messageUserID;
+	public String getMessageUsername() {
+		return messageUsername;
 	}
 
 	/**
 	 * @param messageUserID the messageUserID to set
 	 */
-	public void setMessageUserID(int messageUserID) {
-		this.messageUserID = messageUserID;
+	public void setMessageUsername(String messageUsername) {
+		this.messageUsername = messageUsername;
 	}
 
 }

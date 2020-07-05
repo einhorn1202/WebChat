@@ -50,4 +50,10 @@ public class UserManager{
 			else return null;
 		}
 	}
+	
+	public User getUserByUsername(String username) {
+		return dao.getUserByUsername(username);
+	}
+	
+	
 }

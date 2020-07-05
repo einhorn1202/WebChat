@@ -54,8 +54,8 @@ public class ChannelManager{
 	}
 
 
-	public void addMessageToChannel(Channel channel, User user, Message message) {
-		dao.addMessageToChannel(channel, user, message);
+	public void addMessageToChannel(Channel channel, User user, String value) {
+		dao.addMessageToChannel(channel, user, value);
 	}
 
 	public void deleteMessageFromChannel(Message message) {
@@ -93,4 +93,8 @@ public class ChannelManager{
         }
         return searchChannelList;
     }
+	
+	public void clearTableUserInChannel() {
+		dao.clearTableUserInChannel();
+	}
 }

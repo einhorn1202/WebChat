@@ -12,21 +12,22 @@ import TransferObjects.*;
 
 public class SQLiteChannelDAO extends SQLiteDAO implements ChannelDAO{
 	
-	private static final String getChannelStatement = "SELECT CHANNELNAME, CHANNEL_PIC FROM USER WHERE CHANNEL_ID = ?";
+	private static final String getChannelStatement = "SELECT CHANNELNAME, CHANNEL_PIC FROM CHANNEL WHERE CHANNEL_ID = ?";
 	private static final String addChannelStatement = "INSERT INTO CHANNEL (CHANNELNAME,CHANNEL_PIC) VALUES (?,?)";
 	private static final String deleteChannelStatement = "DELETE FROM CHANNEL WHERE CHANNEL_ID = ?";
 	private static final String updateChannelStatement = "UPDATE CHANNEL SET CHANNELNAME = ? , CHANNEL_PIC = ? WHERE CHANNEL_ID = ?";
-	private static final String getMessageListStatement = "SELECT MESSAGE_ID, VALUE, CHANNEL_ID , USER_ID FROM MESSAGE WHERE CHANNEL_ID = ?";
-	private static final String getUserListStatement = "SELECT CHANNEL_ID , USER_ID FROM USER_IN_CHANNEL WHERE CHANNEL_ID = ?";
+	private static final String getMessageListStatement = "SELECT MESSAGE_ID, VALUE, CHANNEL_ID , MESSAGE_USERNAME FROM MESSAGE WHERE CHANNEL_ID = ?"; 
+	private static final String getUserInChannelStatement = "SELECT CHANNEL_ID , USER_ID FROM USER_IN_CHANNEL WHERE CHANNEL_ID = ?";
 	private static final String addUserToChannelStatement = "INSERT INTO USER_IN_CHANNEL (CHANNEL_ID,USER_ID) VALUES (?,?)";
 	private static final String removeUserFromChannelStatement = "DELETE FROM USER_IN_CHANNEL WHERE CHANNEL_ID = ? AND USER_ID = ?";
-	private static final String addMessageToChannelStatement = "INSERT INTO Message (VALUE,CHANNEL_ID,USER_ID) VALUES (?,?,?)";
+	private static final String addMessageToChannelStatement = "INSERT INTO Message (VALUE,CHANNEL_ID,MESSAGE_USERNAME) VALUES (?,?,?)"; 
 	private static final String deleteMessageFromChannelStatement = "DELETE FROM MESSAGE WHERE MESSAGE_ID = ?";
 	private static final String getAllChannelsStatement = "SELECT * FROM CHANNEL";
-	
+	private static final String clearTableUserInChannelStatement = "DELETE FROM USER_IN_CHANNEL";
+	SQLiteUserDAO sqliteUserDAO;
 	public SQLiteChannelDAO() {
 		super();
-		
+		this.sqliteUserDAO = new SQLiteUserDAO();
 	}
 
 	@Override
@@ -38,7 +39,7 @@ public class SQLiteChannelDAO extends SQLiteDAO implements ChannelDAO{
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				channel = new Channel(id,rs.getString("CHANNELNAME"),rs.getString("CHANNEL_PIC"),getMessagesOfChannel(channel.getChannelID()),getUsersOfChannel(channel.getChannelID()));
+				channel = new Channel(id,rs.getString("CHANNELNAME"),rs.getString("CHANNEL_PIC"),getMessagesOfChannel(id),getUsersOfChannel(id));
 			}
 			stmt.close();
 			rs.close();
@@ -133,23 +134,15 @@ public class SQLiteChannelDAO extends SQLiteDAO implements ChannelDAO{
 	}
 
 	@Override
-	public void addMessageToChannel(Channel channel, User user, Message message) {
+	public void addMessageToChannel(Channel channel, User user, String value) {
 		PreparedStatement stmt;
 		try {
 			stmt = getConnection().prepareStatement(addMessageToChannelStatement, Statement.RETURN_GENERATED_KEYS);
-			stmt.setString(1,message.getValue());
+			stmt.setString(1,value);
 			stmt.setInt(2,channel.getChannelID());
-			stmt.setInt(3,user.getUserID());
+			stmt.setString(3,user.getUsername());
             stmt.executeUpdate();
 			stmt.close();
-			try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
-	            if (generatedKeys.next()) {
-	                message.setMessageID(generatedKeys.getInt(1));
-	            }
-	            else {
-	                throw new SQLException("Creating Message failed, no ID obtained.");
-	            }
-	        }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -179,7 +172,7 @@ public class SQLiteChannelDAO extends SQLiteDAO implements ChannelDAO{
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				messageList.add(new Message(rs.getInt("MESSAGE_ID"), rs.getString("VALUE"), rs.getInt("CHANNEL_ID"), rs.getInt("USER_ID")));	
+				messageList.add(new Message(rs.getInt("MESSAGE_ID"), rs.getString("VALUE"), rs.getInt("CHANNEL_ID"), rs.getString("MESSAGE_USERNAME")));	
 			}
 			stmt.close();
 			rs.close();
@@ -195,11 +188,11 @@ public class SQLiteChannelDAO extends SQLiteDAO implements ChannelDAO{
 		PreparedStatement stmt;
 		ArrayList<User> userList = new ArrayList<User>();
 		try {
-			stmt = getConnection().prepareStatement(getUserListStatement);
+			stmt = getConnection().prepareStatement(getUserInChannelStatement);
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				userList.add(new User(rs.getInt("USER_ID"), rs.getString("USERNAME"),rs.getString("PASSWORD"), rs.getString("PROFILE_PIC"), rs.getString("COLOR")));	
+				userList.add(sqliteUserDAO.getUserById(rs.getInt("USER_ID")));	
 			}
 			stmt.close();
 			rs.close();
@@ -227,5 +220,18 @@ public class SQLiteChannelDAO extends SQLiteDAO implements ChannelDAO{
 			e.printStackTrace();
 		}
 		return channelList;
+	}
+	
+	@Override
+	public void clearTableUserInChannel() {
+		PreparedStatement stmt;
+		try {
+			stmt = getConnection().prepareStatement(clearTableUserInChannelStatement);
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

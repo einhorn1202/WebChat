@@ -9,7 +9,7 @@
     xmlns:h="http://xmlns.jcp.org/jsf/html">
     
 <h:head>
-  <title>#{channelBean.channelName}</title>
+  <title>#{channelBean.channel.channelName}</title>
 </h:head>
       <div style = "">
          <ui:insert name = "header">
@@ -17,16 +17,53 @@
          </ui:insert> 
       </div>
       <br/>
-    <h:outputText value="#{channelBean.channel.channelName}" />
+     <p>Hey,<h:outputText value="#{userBean.user.username}" />, <BR />
+     du befindest Dich gerade im Channel <h:outputText value="#{channelBean.channel.channelName}" /> </p>
     
-    <h:dataTable  id="ChannelOverviewTable" value="#{channelBean.channel.MessageList}" var="messages">
+    
+    <p>Aktive Freunde : </p>
+    <f:ajax event="change" render="ActiveUserTable" listener="#{channelBean.joinChannel(channelBean.channel, userBean.user)}">
+	    <h:dataTable  id="ActiveUserTable" value="#{channelBean.channel.activeuserList}" var="user">
+	        <h:column>
+	            <h:outputText value="#{user.username}"/>
+	        </h:column>
+	        <h:column>
+	            <h:outputText value="#{user.profilePic}"/>
+	        </h:column>
+	    </h:dataTable>
+    </f:ajax>
+    <BR />
+    <BR />
+    <BR />
+    <BR />
+    <p>Nachrichten in diesem Channel : </p>
+    <h:dataTable  id="MessageTable" value="#{channelBean.channel.messageList}" var="messages">
+        <h:column>
+            <h:outputText value="#{messages.messageUsername}"/>
+        </h:column>
         <h:column>
             <h:outputText value="#{messages.value}"/>
         </h:column>
-        <h:column>
-            <h:outputText value="#{message.messageUserID}"/>
-        </h:column>
     </h:dataTable>
+    
+
+	    <h:form id="loginform">
+		  	<h:panelGrid id="grid" columns="3">
+		    <h:inputText id="message" value="#{channelBean.valueOfMessage}" required="true"/>
+		    	<h:commandButton value="Senden" action="#{channelBean.sendMessage(userBean.user)}"/>
+		  	</h:panelGrid>
+	 	</h:form>
+    
+    <h:form id="LeaveChannelForm">
+		<h:panelGrid id="grid" columns="3">
+   			<h:commandButton value="Channel verlassen" action="#{channelBean.leaveChannel(userBean.user)}" />
+		</h:panelGrid>
+	 </h:form>
+    
+    
+    
+    
+    
       <div style = "">
          <ui:insert name = "footer" >
             <ui:include src = "/templates/footer.xhtml" />

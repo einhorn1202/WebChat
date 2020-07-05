@@ -14,8 +14,9 @@ public interface ChannelDAO {
 	public void deleteChannel(Channel channel);
 	public void addUserToChannel(Channel channel, User user);
 	public void removeUserFromChannel(Channel channel, User user);
-	public void addMessageToChannel(Channel channel,User user, Message message);
+	public void addMessageToChannel(Channel channel,User user, String value);
 	public void deleteMessageFromChannel(Message message);
 	public ArrayList<User> getUsersOfChannel(int id);
 	public ArrayList<Message> getMessagesOfChannel(int id);
+	public void clearTableUserInChannel();
 }

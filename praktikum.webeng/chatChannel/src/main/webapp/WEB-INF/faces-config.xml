@@ -23,7 +23,7 @@
 	</faces-config-extension>
 	
 	<navigation-rule>
-		<display-name>register.xhtml</display-name>
+		<display-name>Moin Meister</display-name>
 		<from-view-id>/Register.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>registerSuccess</from-outcome>
@@ -37,7 +37,7 @@
 	
 	
 	<navigation-rule>
-		<display-name>Login.xhtml</display-name>
+		<display-name>Moin Meister</display-name>
 		<from-view-id>/Login.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>loginSuccess</from-outcome>
@@ -50,7 +50,7 @@
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>addChannel.xhtml</display-name>
+		<display-name>Moin Meister</display-name>
 		<from-view-id>/AddChannel.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>addChannelSuccess</from-outcome>
@@ -63,11 +63,20 @@
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>joinChannel.xhtml</display-name>
+		<display-name>Moin Meister</display-name>
 		<from-view-id>/ChannelOverview.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>joinChannelSuccess</from-outcome>
 			<to-view-id>/ChatView.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>Moin Meister</display-name>
+		<from-view-id>/ChatView.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>leaveChannelSuccess</from-outcome>
+			<to-view-id>/ChannelOverview.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 </faces-config>

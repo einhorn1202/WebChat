@@ -56,6 +56,7 @@ public class UserBean implements Serializable {
 	public String registerUser() {
 		if(userManager.isUsernameValid(user.getUsername())){
 			userManager.addUser(user);
+			user = userManager.getUserByUsername(user.getUsername());
 			return "registerSuccess";
 		}
 		else
@@ -64,7 +65,8 @@ public class UserBean implements Serializable {
 	
 	public String loginUser() {
 		user = userManager.loginUser(user.getUsername(), user.getPassword());
-		if(user != null){
+		if(user.getUsername().compareTo("") != 0){
+			this.user = userManager.getUserByUsername(user.getUsername());
 			return "loginSuccess";
 		}
 		else
