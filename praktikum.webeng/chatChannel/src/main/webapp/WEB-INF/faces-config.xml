@@ -22,6 +22,8 @@
 		</facelets-processing>
 	</faces-config-extension>
 	
+
+	
 	<navigation-rule>
 		<display-name>Moin Meister</display-name>
 		<from-view-id>/Register.xhtml</from-view-id>
@@ -33,6 +35,10 @@
 			<from-outcome>registerFailure</from-outcome>
 			<to-view-id>/Register.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+        	<from-outcome>registerCancel</from-outcome>
+        	<to-view-id>/Welcome.xhtml</to-view-id>
+    	</navigation-case>
 	</navigation-rule>
 	
 	
