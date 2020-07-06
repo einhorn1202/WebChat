@@ -55,5 +55,11 @@ public class UserManager{
 		return dao.getUserByUsername(username);
 	}
 	
-	
+	public String getColorOfUser(String username) {
+		User user = dao.getUserByUsername(username);
+		if(user != null)
+		    return user.getColor();
+		else 
+			return "black";
+	}
 }

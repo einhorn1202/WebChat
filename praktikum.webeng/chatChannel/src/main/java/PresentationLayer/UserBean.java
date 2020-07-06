@@ -84,5 +84,9 @@ public class UserBean implements Serializable {
 		}
 		else throw new ValidatorException(new FacesMessage("Nutzername ist ein Pflichtfeld!"));
 	}
+	
+	public String getColorOfUser(String username) {
+		return userManager.getColorOfUser(username);
+	}
 
 }

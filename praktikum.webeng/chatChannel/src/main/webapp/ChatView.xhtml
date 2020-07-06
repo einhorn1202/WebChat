@@ -39,10 +39,10 @@
     <p>Nachrichten in diesem Channel : </p>
     <h:dataTable  id="MessageTable" value="#{channelBean.channel.messageList}" var="messages">
         <h:column>
-            <h:outputText value="#{messages.messageUsername}"/>
+            <h:outputText value="#{messages.messageUsername}" style="color : #{userBean.getColorOfUser(messages.messageUsername)}"/> 
         </h:column>
         <h:column>
-            <h:outputText value="#{messages.value}"/>
+            <h:outputText value="#{messages.value}" style="color : #{userBean.getColorOfUser(messages.messageUsername)}"/>
         </h:column>
     </h:dataTable>
     
@@ -54,7 +54,7 @@
 		  	</h:panelGrid>
 	 	</h:form>
     
-    <h:form id="LeaveChannelForm">
+     <h:form id="LeaveChannelForm">
 		<h:panelGrid id="grid" columns="3">
    			<h:commandButton value="Channel verlassen" action="#{channelBean.leaveChannel(userBean.user)}" />
 		</h:panelGrid>
