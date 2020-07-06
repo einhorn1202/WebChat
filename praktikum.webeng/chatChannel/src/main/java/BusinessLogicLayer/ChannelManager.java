@@ -1,7 +1,7 @@
 package BusinessLogicLayer;
 
 import java.util.ArrayList;
-
+import java.util.*;
 import DataAccessLayer.ChannelDAO;
 import DataAccessLayer.DAOFactory;
 import DataAccessLayer.SQLiteChannelDAO;

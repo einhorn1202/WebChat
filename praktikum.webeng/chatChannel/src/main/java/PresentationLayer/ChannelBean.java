@@ -120,5 +120,14 @@ public class ChannelBean {
     	this.channel = channelManager.getChannel(channel.getChannelID());
     	return "";
     }
+    
+    public String getActiveUsers(Channel countChannel) {
+    	//String 
+    	String count = String.valueOf(countChannel.getActiveuserList().size());
+    	if(count == null)
+    		return "0";
+    	else 
+    		return count;
+    }
 
 }

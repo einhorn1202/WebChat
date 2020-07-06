@@ -40,7 +40,9 @@
             		<h:commandButton value="Join" action="#{channelBean.joinChannel(channel, userBean.user)}"/>
             	 </h:form>
             </h:column>
-         
+            <h:column>
+            <h:outputText name="activeUsers" value="#{channelBean.getActiveUsers(channel)}"/>
+         	</h:column>
         </h:dataTable>
         
      <h:form id="AddChannelForm">
