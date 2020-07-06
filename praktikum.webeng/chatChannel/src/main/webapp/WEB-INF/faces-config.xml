@@ -29,7 +29,7 @@
 		<from-view-id>/Register.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>registerSuccess</from-outcome>
-			<to-view-id>/ChannelOverview.xhtml</to-view-id>
+			<to-view-id>/PROTECTED/ChannelOverview.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>registerFailure</from-outcome>
@@ -47,7 +47,7 @@
 		<from-view-id>/Login.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>loginSuccess</from-outcome>
-			<to-view-id>/ChannelOverview.xhtml</to-view-id>
+			<to-view-id>/PROTECTED/ChannelOverview.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>loginFailure</from-outcome>
@@ -57,32 +57,32 @@
 	
 	<navigation-rule>
 		<display-name>Moin Meister</display-name>
-		<from-view-id>/AddChannel.xhtml</from-view-id>
+		<from-view-id>/PROTECTED/AddChannel.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>addChannelSuccess</from-outcome>
-			<to-view-id>/ChannelOverview.xhtml</to-view-id>
+			<to-view-id>/PROTECTED/ChannelOverview.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>addChannelFailure</from-outcome>
-			<to-view-id>/AddChannel.xhtml</to-view-id>
+			<to-view-id>/PROTECTED/AddChannel.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
 		<display-name>Moin Meister</display-name>
-		<from-view-id>/ChannelOverview.xhtml</from-view-id>
+		<from-view-id>/PROTECTED/ChannelOverview.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>joinChannelSuccess</from-outcome>
-			<to-view-id>/ChatView.xhtml</to-view-id>
+			<to-view-id>/PROTECTED/ChatView.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
 		<display-name>Moin Meister</display-name>
-		<from-view-id>/ChatView.xhtml</from-view-id>
+		<from-view-id>/PROTECTED/ChatView.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>leaveChannelSuccess</from-outcome>
-			<to-view-id>/ChannelOverview.xhtml</to-view-id>
+			<to-view-id>/PROTECTED/ChannelOverview.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 </faces-config>
