@@ -121,13 +121,9 @@ public class ChannelBean {
     	return "";
     }
     
-    public String countActiveUsers(Channel countChannel) {
-    	//String 
-    	String count = String.valueOf(countChannel.getActiveuserList().size());
-    	if(count == null)
-    		return "0";
-    	else
-    		return count;
+    public String countActiveUsers(int channelID) {
+    	this.channel = channelManager.getChannel(channelID);
+    	return "" + channel.getActiveuserList().size();
     }
 
 }

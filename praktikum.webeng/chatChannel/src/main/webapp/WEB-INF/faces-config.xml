@@ -85,4 +85,26 @@
 			<to-view-id>/PROTECTED/ChannelOverview.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>Moin Meister</display-name>
+		<from-view-id>/PROTECTED/DeleteUser.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>deleteSuccess</from-outcome>
+			<to-view-id>/SuccessLogout.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>Moin Meister</display-name>
+		<from-view-id>/PROTECTED/EditProfile.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>updateSuccess</from-outcome>
+			<to-view-id>/PROTECTED/ChannelOverview.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>updateFailure</from-outcome>
+			<to-view-id>/PROTECTED/EditProfile.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>

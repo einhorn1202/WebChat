@@ -22,11 +22,12 @@
 
 <h1>Menu</h1>
 
-<h:form id="MenuForm">    
+<h:form id="MenuForm">
   <h:panelGrid id="grid" columns="3">
-    <h:commandButton value="Profil bearbeiten" action="#{EditUser}" />
+    <h:commandButton value="Channel Übersicht" action="ChannelOverview.xhtml" />
+    <h:commandButton value="Profil bearbeiten" action="EditProfile.xhtml" />
     <h:commandButton value="Ausloggen" action="#{Logout}" />
-    <h:commandButton value="Account Löschen" action="#{DeleteAccount}" />
+    <h:commandButton value="Account Löschen" action="DeleteUser.xhtml+" />
   </h:panelGrid>
   </h:form>
   

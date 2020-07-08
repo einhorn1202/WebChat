@@ -26,7 +26,7 @@ public class UserBean implements Serializable {
 	private UserManager userManager;
 	private String loginUsername;
 	private String loginPassword;
-	
+
 	@PostConstruct
 	public void init() {
 		if(userManager == null) {
@@ -64,13 +64,14 @@ public class UserBean implements Serializable {
 	}
 	
 	public String loginUser() {
-		user = userManager.loginUser(user.getUsername(), user.getPassword());
-		if(user.getUsername().compareTo("") != 0){
-			this.user = userManager.getUserByUsername(user.getUsername());
+		User newUser = userManager.loginUser(user.getUsername(), user.getPassword());
+		
+		if(newUser != null){
+			this.user = userManager.getUserByUsername(newUser.getUsername());
 			return "loginSuccess";
 		}
 		else
-			return "loginFailure";
+			return "loginFailure";	
 	}
 	
 	//Validators
@@ -88,5 +89,16 @@ public class UserBean implements Serializable {
 	public String getColorOfUser(String username) {
 		return userManager.getColorOfUser(username);
 	}
+	
+	public String deleteUser() {
+		userManager.deleteUser(user);
+		user = new User();
+		return "deleteSuccess";
+	}
+	
+	public String updateUser() {
+		return userManager.updateUser(user);
+	}
+	
 
 }

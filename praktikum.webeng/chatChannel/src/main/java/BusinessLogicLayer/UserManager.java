@@ -16,8 +16,20 @@ public class UserManager{
 		return dao.getUserById(id);
 	}
 
-	public void updateUser(User user) {
-		dao.updateUser(user);
+	public String updateUser(User user) {
+		
+		boolean success = true;
+		
+		for(User newUser : dao.getAllUsers()) {
+			if(newUser.getUsername() == user.getUsername() && newUser.getUserID() != user.getUserID())
+				success = false;
+		}
+		if(success) {
+			dao.updateUser(user);
+			return "updateSuccess";
+		}
+		else 
+			return "updateFailure";
 	}
 
 	public void addUser(User user) {
