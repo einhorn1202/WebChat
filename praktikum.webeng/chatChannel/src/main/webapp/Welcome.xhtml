@@ -10,35 +10,25 @@
     
 <h:head>
 	<title>ChatChannel</title>
-	
 	<h:outputStylesheet library = "css" name = "style.css" /> 
 </h:head>
 
-	<h:outputStylesheet library="css" name="style.css"  />
-
-<div style = "">
-         <ui:insert name = "header">
-            <ui:include src = "/templates/header.xhtml" />
-         </ui:insert> 
-</div>
-      <br/>
-      
-
-<h1>Willkommen bei ChatChannel.</h1>
-			<h:form id="loginform">
-	  <h:panelGrid id="grid" columns="3">
-	    <h:commandButton value="register" action="Register.xhtml"/>
-	    <h:commandButton value="login" action="Login.xhtml" />
-	  </h:panelGrid>
-	</h:form>
-
-
-      <div style = "">
-         <ui:insert name = "footer" >
-            <ui:include src = "/templates/footer.xhtml" />
-         </ui:insert>
-      </div>
-
-
+<body>
+	<div id="welcome">
+		<h1>Willkommen bei <br></br> ChatChannel.</h1>
 	
+		<h:form id="welcomeform">
+		  <h:panelGrid id="grid" columns="3">
+		    <h:commandButton value="register" action="Register.xhtml" class="buttons"/>
+		    <h:commandButton value="login" action="Login.xhtml" class="buttons"/>
+		  </h:panelGrid>
+		</h:form>
+	</div>
+
+     <ui:insert name = "footer" >
+        <ui:include src = "/templates/footer.xhtml" />
+     </ui:insert>
+
+
+</body>	
 </html>

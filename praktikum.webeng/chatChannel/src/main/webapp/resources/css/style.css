@@ -1,21 +1,132 @@
-#menu{
-	position: fixed; 
-    bottom: 0; 
-    right: 0; 
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
-body {
-     color: grey;
-     font-family: 'Arial', sans-serif;
-     font-size: 15vw;  
-}
+/* Allgemein */
+	body {
+		font-family: 'Roboto', sans-serif;
+	    color: rgb(144,144,144);
+	}
+	
+	h1 {
+		color: rgb(144,144,144);
+		font-family: 'Roboto', sans-serif;
+	    font-size: 3vw;  
+	}
+	
+	p {
+		font-family: 'Roboto', sans-serif;
+	    color: rgb(144,144,144);
+	}
 
-h1 {
-     color: red;
-     font-family: 'Arial', sans-serif;
-     font-size: 15vw;  
-}
+/* Menübutton aka. Profilbild */
+	#menu{
+		position: absolute; 
+	    top: 0; 
+	    right: 0; 
+	}
 
-p{
-	color: red,
-}
+/* Logo unten Rechts in der Ecke */
+	#logo{
+		position: absolute; 
+	    bottom: 0; 
+	    right: 0; 
+	}
+
+/* Welcome Seite */
+	#welcome{
+	    display: grid;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+/* Login Seite */
+	#login{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+/* Register Seite */
+	#register {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+/* Channel Overview Seite */
+	#channeloverview {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+/* Channel Overview Seite */
+	#addChannel {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+/* Input Felder */
+	input[type=text], select {
+		background-color: white;
+		font-family: 'Roboto', sans-serif;
+	  	color: rgb(144,144,144);
+	  	font-size: 16px;
+	  	padding: 10px 24px;
+		border: 1.5px solid rgb(144,144,144); 
+	  	box-sizing: border-box;
+	}
+	
+	input[type=text]:focus {
+  		border: 3px solid #555;
+	}
+	
+	
+	input[type=password], select {
+		background-color: white;
+		font-family: 'Roboto', sans-serif;
+	  	color: rgb(144,144,144);
+	  	font-size: 16px;
+	  	width: 100%;
+	  	padding: 10px 24px;
+		border: 1.5px solid rgb(144,144,144); 
+	  	box-sizing: border-box;
+	}
+	
+	::placeholder {
+		font-family: 'Roboto', sans-serif;
+	  	color: rgb(144,144,144);
+	  	font-size: 16px;
+	}
+	
+	#userID {
+		visibility: hidden;
+	}
+
+
+/* Buttons */
+	.buttons {
+		background-color: white;
+		font-family: 'Roboto', sans-serif;
+	  	color: rgb(144,144,144);
+	  	font-size: 16px;
+	  	padding: 10px 24px;
+	  	border: 1.5px solid rgb(144,144,144); 
+	  	transition-durastion: 0.4s;
+	  	cursor: pointer;
+	}
+	
+	.buttons:hover {
+		background-color: rgb(144,144,144); 
+		color: white;
+		cursor: pointer;
+	}
+

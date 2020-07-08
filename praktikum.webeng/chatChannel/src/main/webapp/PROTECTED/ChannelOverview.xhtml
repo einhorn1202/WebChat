@@ -10,49 +10,53 @@
     
 <h:head>
     <title>ChatChannel</title>
+    <h:outputStylesheet library = "css" name = "style.css" />
 </h:head>
-      <div style = "">
-         <ui:insert name = "header">
-            <ui:include src = "/templates/header.xhtml" />
-         </ui:insert> 
-      </div>
-<h:body>
-    <f:view>
-        <p>Hallo,<h:outputText value="#{userBean.user.username}"/></p>
-        <p>Lege los und chatte mit deinen Freunden in einem ChatChannel deiner Wahl.</p>
-    </f:view>
-    
+	<body>
 
-	    <f:ajax event="keyup" render="ChannelOverviewTable" listener="#{channelBean.searchChannelNameList}">
-            <p>Search for a Channel!</p>
-            <h:inputText id="channelName" class="form-control" value="#{channelBean.searchChannelName}"></h:inputText>
-	    </f:ajax>
-     
-        <h:dataTable  id="ChannelOverviewTable" value="#{channelBean.channelList}" var="channel">
-        
-            <h:column>
-            	<f:facet name = "header">Channelname</f:facet> 
-               <h:outputText name="ChannelName" value="#{channel.channelName}"/>
-            </h:column>
-            
-            <h:column>
-            	  <h:form>
-            		<h:commandButton value="Join" action="#{channelBean.joinChannel(channel, userBean.user)}"/>
-            	 </h:form>
-            </h:column>
-            <h:column>
-            <h:outputText name="activeUsers" value="#{channelBean.countActiveUsers(channel.channelID)}"/>
-         	</h:column>
-        </h:dataTable>
-        
-     <h:form id="AddChannelForm">
-		<h:panelGrid id="grid" columns="3">
-   			<h:commandButton value="+" action="AddChannel.xhtml" />
-		</h:panelGrid>
-	 </h:form>
+       	<ui:insert name = "header">
+          	<ui:include src = "/templates/header.xhtml" />
+       	</ui:insert> 
+
+	    <f:view>
+	        <p>Hallo,<h:outputText value="#{userBean.user.username}"/></p>
+	        <p>Lege los und chatte mit deinen Freunden in einem ChatChannel deiner Wahl.</p>
+	    </f:view>
+	 	
+	 	<div id="channeloverview">
+	    <h:form id="SearchChannelForm">
+		    <f:ajax event="keyup" render="ChannelOverviewTable" listener="#{channelBean.searchChannelNameList}">
+	            <h:inputText id="channelName" class="form-control" value="#{channelBean.searchChannelName}" pt:placeholder="Search" ></h:inputText>
+		    </f:ajax>
+		</h:form>
+		    
+	    <h:form id="SelectChannelForm">
+	        <h:dataTable  id="ChannelOverviewTable" value="#{channelBean.channelList}" var="channel">
+	            <h:column>
+	               	<h:outputText name="ChannelName" value="#{channel.channelName}"/>
+	            </h:column>
+	            
+	            <h:column>
+	            	<h:outputText name="activeUsers" value="#{channelBean.countActiveUsers(channel.channelID)}"/>
+	         	</h:column>
+	            
+	            <h:column>
+	            	<h:form>
+	            		<h:commandButton value="Join" action="#{channelBean.joinChannel(channel, userBean.user)}" class="buttons"/>
+	            	</h:form>
+	            </h:column>
+	        </h:dataTable>
+	   	</h:form>
+	   	
+		     <h:form id="AddChannelForm">
+				<h:panelGrid id="grid" columns="1">
+		   			<h:commandButton value="+" action="AddChannel.xhtml" class="buttons"/>
+				</h:panelGrid>
+			 </h:form>
+		</div>
 		
   		<ui:insert name = "footer" >
             <ui:include src = "/templates/footer.xhtml" />
-         </ui:insert>
-</h:body>
+        </ui:insert>
+	</body>
 </html>

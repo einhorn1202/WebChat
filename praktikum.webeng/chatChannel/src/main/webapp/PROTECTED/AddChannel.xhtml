@@ -10,32 +10,33 @@
     
 <h:head>
   <title>ChatChannel erstellen</title>
+  <h:outputStylesheet library = "css" name = "style.css" />
 </h:head>
 
-      <div style = "">
-         <ui:insert name = "header">
-            <ui:include src = "/templates/header.xhtml" />
-         </ui:insert> 
-      </div>
-      <br/>
-      
-<h1>ChatChannel erstellen</h1>
-
-<h:form id="CreateChannelForm">
-  <h:panelGrid id="grid" columns="3">
-    <h:outputText value="Channelname"/>
-    <h:inputText value="#{channelBean.channel.channelName}" /><br/><br/>
-    <h:outputText value="Bild hochladen "/>
-    <h:inputFile id="file" value="#{ChannelBean.channel.ChannelPic}"/><br/><br/>
-  	     
-    <h:commandButton value="create" action="#{channelBean.addChannel}" />
-    <h:commandButton value="cancel" action="#{ChannelOverview.xhtml}" />
-  </h:panelGrid>
-</h:form>
-
- <div style = "">
-         <ui:insert name = "footer" >
-            <ui:include src = "/templates/footer.xhtml" />
-         </ui:insert>
-      </div>
+	<body>
+	    <ui:insert name = "header">
+	       <ui:include src = "/templates/header.xhtml" />
+	    </ui:insert> 
+	  
+	  	<div id="addChannel">
+			<h1>ChatChannel erstellen</h1>
+		
+			<h:form id="CreateChannelForm" enctype="multipart/form-data">
+			
+			  <h:panelGrid id="grid" columns="1">
+			    <h:inputText value="#{channelBean.channel.channelName}" pt:placeholder="Channelname" required="true" />
+			    <h:inputFile id="file" value="#{ChannelBean.channel.ChannelPic}" pt:placeholder="Channelname" required="true" class="buttons" />
+			  </h:panelGrid> 
+			  
+			  <h:panelGrid id="buttonlane" columns="2">  
+			    <h:commandButton value="create" action="#{channelBean.addChannel}" class="buttons" />
+			    <h:commandButton value="cancel" action="ChannelOverview.xhtml" id="cancel" class="buttons" immediate="true"/>
+			  </h:panelGrid>
+			</h:form>
+		</div>
+		
+	    <ui:insert name = "footer" >
+	       <ui:include src = "/templates/footer.xhtml" />
+	    </ui:insert>
+	</body>
 </html>

@@ -10,44 +10,45 @@
     xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
   <title>Registrierung</title>
+  <h:outputStylesheet library = "css" name = "style.css" />
 </h:head>
 
-      <div style = "">
-         <ui:insert name = "header">
-            <ui:include src = "/templates/header.xhtml" />
-         </ui:insert> 
-      </div>
-      <br/>
-      
-<h1><h:outputText value="Registrierung"/></h1>
-<h:form id="registerform">
-    <h:panelGrid id="grid" columns="4">
-    	<h:outputText value="UserID" for="userID"/>
-        <h:inputText id="userID" value="#{userBean.user.userID}" required="true"/>
-        
-        <h:outputText value="Benutzername" for="userName"/>
-        <h:inputText id="userName" value="#{userBean.user.username}" required="true" validator="#{userBean.usernameValidate}">
-    		<f:ajax render="errorUsername" execute="@this" event="valueChange"/>
-    	</h:inputText>
-   		<h:message for="userName" id="errorUsername" errorStyle="color: red" class="help-block alert-danger"/>
-        <h:outputText value="Passwort" for="password"/>
-        <h:inputText id="password" value="#{userBean.user.password}" required="true">
-        	<f:validator validatorId="PasswordValidator"/>
-    	</h:inputText>
-    	<h:message for="password" style="color:red"/>
-        <h:outputText value="Profile_pic" for="profile_pic"/>
-        <h:inputText id="profile_pic" value="#{userBean.user.profilePic}" required="true"/>
-        
-        <h:outputText value="Color" for="color"/>
-        <h:inputText id="color" value="#{userBean.user.color}" required="true"/>
-        <h:commandButton action="#{userBean.registerUser}" value="Submit" />
-        <h:commandButton action="Register.xhtml" value="Abbrechen" id="abbrechen" class="btn btn-danger" immediate="true"/>
-    </h:panelGrid>
-</h:form>
+	<body>
+	    <ui:insert name = "header">
+	       <ui:include src = "/templates/header.xhtml" />
+	    </ui:insert> 
 
-      <div style = "">
-         <ui:insert name = "footer" >
-            <ui:include src = "/templates/footer.xhtml" />
-         </ui:insert>
-      </div>
+		<div id="register">
+			<h1>Registrierung</h1>
+			
+			<h:form id="registerform">
+			    <h:panelGrid id="grid" columns="1">
+			        <h:inputText id="userID" value="#{userBean.user.userID}" pt:placeholder="UserID" required="true"/>
+			        
+			        <h:inputText id="userName" value="#{userBean.user.username}" required="true" validator="#{userBean.usernameValidate}" pt:placeholder="Username" >
+			    		<f:ajax render="errorUsername" execute="@this" event="valueChange"/>
+			    	</h:inputText>
+			   		<h:message for="userName" id="errorUsername" errorStyle="color: red" class="help-block alert-danger"/>
+
+			        <h:inputText id="password" value="#{userBean.user.password}" required="true" pt:placeholder="Password">
+			        	<!--  <f:validator validatorId="PasswordValidator"/> -->
+			    	</h:inputText>
+			    	<h:message for="password" style="color:red"/>
+			    	
+			        <h:inputText id="profile_pic" value="#{userBean.user.profilePic}" pt:placeholder="Profilepic" required="true"/>
+			        
+			        <h:inputText id="color" value="#{userBean.user.color}" pt:placeholder="color" required="true"/>
+			    </h:panelGrid>
+			    
+			    <h:panelGrid id="buttonlane" columns="2">
+			        <h:commandButton action="#{userBean.registerUser}" value="Submit" class="buttons" />
+			        <h:commandButton action="Register.xhtml" value="cancel" id="cancel" class="buttons" immediate="true"/>
+			    </h:panelGrid>
+			</h:form>
+		</div>
+	
+        <ui:insert name = "footer" >
+           <ui:include src = "/templates/footer.xhtml" />
+        </ui:insert>
+	</body>
 </html>
