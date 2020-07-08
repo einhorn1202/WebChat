@@ -92,7 +92,7 @@ public class UserBean implements Serializable {
 	
 	public String deleteUser() {
 		userManager.deleteUser(user);
-		user = null;
+		user = new User();
 		return "deleteSuccess";
 	}
 	
