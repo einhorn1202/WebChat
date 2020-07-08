@@ -9,19 +9,15 @@
     xmlns:b="http://bootsfaces.net/ui"
     xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
-  <title>Registrierung</title>
+  <title>Register</title>
   <h:outputStylesheet library = "css" name = "style.css" />
 </h:head>
 
 	<body>
-	    <ui:insert name = "header">
-	       <ui:include src = "/templates/header.xhtml" />
-	    </ui:insert> 
-
 		<div id="register">
-			<h1>Registrierung</h1>
+			<h1>Register</h1>
 			
-			<h:form id="registerform">
+			<h:form id="registerform" enctype="multipart/form-data">
 			    <h:panelGrid id="grid" columns="1">
 			        <h:inputText id="userID" value="#{userBean.user.userID}" pt:placeholder="UserID" required="true"/>
 			        
@@ -35,9 +31,9 @@
 			    	</h:inputText>
 			    	<h:message for="password" style="color:red"/>
 			    	
-			        <h:inputText id="profile_pic" value="#{userBean.user.profilePic}" pt:placeholder="Profilepic" required="true"/>
+			    	<h:inputFile id="file" value="#{userBean.user.profilePic}" pt:placeholder="#{userBean.user.profilePic}" required="true" class="buttons" />
 			        
-			        <h:inputText id="color" value="#{userBean.user.color}" pt:placeholder="color" required="true"/>
+			        <h:inputText id="color" value="#{userBean.user.color}" pt:placeholder="Color" required="true"/>
 			    </h:panelGrid>
 			    
 			    <h:panelGrid id="buttonlane" columns="2">

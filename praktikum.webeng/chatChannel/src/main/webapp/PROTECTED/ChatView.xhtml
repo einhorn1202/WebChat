@@ -10,72 +10,61 @@
     
 <h:head>
   <title>#{channelBean.channel.channelName}</title>
+  <h:outputStylesheet library = "css" name = "style.css" />
 </h:head>
-      <div style = "">
+
+ 	<body>
          <ui:insert name = "header">
             <ui:include src = "/templates/header.xhtml" />
          </ui:insert> 
-      </div>
-      <br/>
-     <p>Hey,<h:outputText value="#{userBean.user.username}" />, <BR />
-     du befindest Dich gerade im Channel <h:outputText value="#{channelBean.channel.channelName}" /> </p>
-    
-    
-    <p>Aktive Freunde : </p>
-    <f:ajax event="change" render="ActiveUserTable" listener="#{channelBean.joinChannel(channelBean.channel, userBean.user)}">
-	    <h:dataTable  id="ActiveUserTable" value="#{channelBean.channel.activeuserList}" var="user">
-	        <h:column>
-	            <h:outputText value="#{user.username}"/>
-	        </h:column>
-	        <h:column>
-	            <h:graphicImage value = "/userPictures/#{user.profilePic}"/>
-	        </h:column>
-	    </h:dataTable>
-    </f:ajax>
-    <BR />
-    <BR />
-    <BR />
-    <BR />
-    <p>Nachrichten in diesem Channel : </p>
-    <h:dataTable  id="MessageTable" value="#{channelBean.channel.messageList}" var="messages">
-        <h:column>
-            <h:outputText value="#{messages.messageUsername}" style="color : #{userBean.getColorOfUser(messages.messageUsername)}"/> 
-        </h:column>
-        <h:column>
-            <h:outputText value="#{messages.value}" style="color : #{userBean.getColorOfUser(messages.messageUsername)}"/>
-        </h:column>
-    </h:dataTable>
-    
 
-	    <h:form id="loginform">
-		  	<h:panelGrid id="grid" columns="3">
-		    <h:inputText id="message" value="#{channelBean.valueOfMessage}" required="true"/>
-		    	<h:commandButton value="Senden" action="#{channelBean.sendMessage(userBean.user)}"/>
-		  	</h:panelGrid>
-	 	</h:form>
-	 	
-	 	<h:form id="refreshform">
-	 		<h:panelGrid id="refreshGrid">
-		    <h:inputText id="refreshInput" value="#{channelBean.valueOfMessage}" required="true"/>
-		    	<h:commandButton value="Senden" action="#{channelBean.sendMessage(userBean.user)}"/>
-		  	</h:panelGrid>
-	 	</h:form>
-	 	
-	 	
-    
-     <h:form id="LeaveChannelForm">
-		<h:panelGrid id="grid" columns="3">
-   			<h:commandButton value="Channel verlassen" action="#{channelBean.leaveChannel(userBean.user)}" />
-		</h:panelGrid>
-	 </h:form>
-    
-    
-    
-    
-    
-      <div style = "">
+
+     	<p>Hey, <h:outputText value="#{userBean.user.username}" />, <BR />
+     	you are now in Channel : <h:outputText value="#{channelBean.channel.channelName}" /> </p>
+	    
+	    <div id="activeUsers">
+		    <p>Active Users : </p>
+		    <f:ajax event="change" render="ActiveUserTable" listener="#{channelBean.joinChannel(channelBean.channel, userBean.user)}">
+			    <h:dataTable  id="ActiveUserTable" value="#{channelBean.channel.activeuserList}" var="user">
+			        <h:column>
+			            <h:outputText value="#{user.username}"/>
+			        </h:column>
+			        <h:column>
+			            <h:graphicImage value = "/userPictures/#{user.profilePic}"/>
+			        </h:column>
+			    </h:dataTable>
+		    </f:ajax>
+		    
+		    <h:form id="LeaveChannelForm">
+				<h:panelGrid id="grid" columns="3">
+		   			<h:commandButton value="Channel verlassen" action="#{channelBean.leaveChannel(userBean.user)}" class="buttons"/>
+				</h:panelGrid>
+			</h:form>
+	    </div>
+
+		<div id="chat">
+		    <p>Messages in this Channel : </p>
+		    
+		    <h:dataTable  id="MessageTable" value="#{channelBean.channel.messageList}" var="messages">
+		        <h:column>
+		            <h:outputText value="#{messages.messageUsername}" style="color : #{userBean.getColorOfUser(messages.messageUsername)}"/> 
+		        </h:column>
+		        <h:column>
+		            <h:outputText value="#{messages.value}" style="color : #{userBean.getColorOfUser(messages.messageUsername)}"/>
+		        </h:column>
+		    </h:dataTable>
+	   		 	
+		 	<h:form id="messageform">
+		 		<h:panelGrid id="refreshGrid" columns="2">
+			    <h:inputText id="refreshInput" value="#{channelBean.valueOfMessage}" required="true"/>
+			    	<h:commandButton value="Senden" action="#{channelBean.sendMessage(userBean.user)}" class="buttons"/>
+			  	</h:panelGrid>
+		 	</h:form>
+		 </div>
+ 
          <ui:insert name = "footer" >
             <ui:include src = "/templates/footer.xhtml" />
          </ui:insert>
-      </div>
+      
+      </body>
 </html>

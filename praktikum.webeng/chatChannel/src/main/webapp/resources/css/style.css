@@ -20,8 +20,9 @@
 /* Menübutton aka. Profilbild */
 	#menu{
 		position: absolute; 
-	    top: 0; 
-	    right: 0; 
+	    top: 0%; 
+	    right: 0%; 
+	    transform: translate(-0%, -0%);
 	}
 
 /* Logo unten Rechts in der Ecke */
@@ -74,6 +75,64 @@
 		transform: translate(-50%, -50%);
 	}
 	
+/* Menu Seite */
+	#menuSide {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+/* Edit Profile */
+	#editProfile {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+/* Logout */
+	#logout {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+/* Delete Account */
+	#deleteAccount {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	
+/* Chat */
+	#chat {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+/* Success Delete */
+	#successDelete {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+/* Success Logout */
+	#successLogout {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	
 /* Input Felder */
 	input[type=text], select {
 		background-color: white;
@@ -86,6 +145,9 @@
 	}
 	
 	input[type=text]:focus {
+		background-color: white;
+		font-family: 'Roboto', sans-serif;
+	  	color: rgb(144,144,144);
   		border: 3px solid #555;
 	}
 	

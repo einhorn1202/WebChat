@@ -11,29 +11,29 @@
     
 <h:head>
   <title>Menu</title>
+  <h:outputStylesheet library = "css" name = "style.css" />
 </h:head>
 
-      <div style = "">
+	<body>
          <ui:insert name = "header">
             <ui:include src = "/templates/header.xhtml" />
          </ui:insert> 
-      </div>
-      <br/>
 
-<h1>Menu</h1>
-
-<h:form id="MenuForm">
-  <h:panelGrid id="grid" columns="3">
-    <h:commandButton value="Channel Übersicht" action="ChannelOverview.xhtml" />
-    <h:commandButton value="Profil bearbeiten" action="EditProfile.xhtml" />
-    <h:commandButton value="Ausloggen" action="#{Logout}" />
-    <h:commandButton value="Account Löschen" action="DeleteUser.xhtml+" />
-  </h:panelGrid>
-  </h:form>
+		<div id="menuSide">
+			<h1>Menu</h1>
+			
+			<h:form id="MenuForm">
+			  <h:panelGrid id="grid" columns="1">
+			    <h:commandButton value="Channel Overview" action="ChannelOverview.xhtml" class="buttons"/>
+			    <h:commandButton value="Edit Profile " action="EditProfile.xhtml" class="buttons"/>
+			    <h:commandButton value="Logout" action="Logout.xhtml" class="buttons"/>
+			    <h:commandButton value="Delete Account" action="DeleteUser.xhtml" class="buttons"/>
+			  </h:panelGrid>
+			  </h:form>
+		</div>
   
-        <div style = "">
          <ui:insert name = "footer" >
             <ui:include src = "/templates/footer.xhtml" />
          </ui:insert>
-      </div>
+	</body>
 </html>

@@ -9,28 +9,28 @@
     xmlns:h="http://xmlns.jcp.org/jsf/html">
     
 <h:head>
-  <title>Account Löschen</title>
+  	<title>Delete Account</title>
+    <h:outputStylesheet library = "css" name = "style.css" />
 </h:head>
 
-      <div style = "">
+ 	<body>
          <ui:insert name = "header">
             <ui:include src = "/templates/header.xhtml" />
          </ui:insert> 
-      </div>
-      <br/>
+      		
+      	<div id="deleteAccount">
+			<h1>Do you really want to delete your Account ?</h1>
 
-<h1>Möchten Sie Ihren Account wirklich löschen?</h1>
+			<h:form id="DeleteAccountForm">    
+			  	<h:panelGrid id="grid" columns="2">
+			    	<h:commandButton value="yes" action="#{SuccessDelete}" class="buttons"/>
+			    	<h:commandButton value="no" action="#{Menu}" class="buttons"/>
+			  	</h:panelGrid>
+			</h:form>
+  		</div>
 
-<h:form id="DeleteUserForm">    
-  <h:panelGrid id="grid" columns="3">
-    <h:commandButton value="ja" action="#{userBean.deleteUser}" />
-    <h:commandButton value="nein" action="Menu.xhtml" />
-  </h:panelGrid>
-  </h:form>
-  
-        <div style = "">
-         <ui:insert name = "footer" >
-            <ui:include src = "/templates/footer.xhtml" />
-         </ui:insert>
-      </div>
+        <ui:insert name = "footer" >
+           <ui:include src = "/templates/footer.xhtml" />
+        </ui:insert>
+      </body>
 </html>

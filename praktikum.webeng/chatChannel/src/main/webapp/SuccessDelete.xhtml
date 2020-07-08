@@ -10,15 +10,21 @@
     xmlns:h="http://xmlns.jcp.org/jsf/html">
     
 <h:head>
-	<title>Account erfolgreich gelöscht.</title>
+	<title>Account deleted successfully.</title>
+	<h:outputStylesheet library = "css" name = "style.css" />
 </h:head>
 
-<h1>Account erfolgreich gelöscht.</h1>
-
-      <div style = "">
-         <ui:insert name = "footer" >
-            <ui:include src = "/templates/footer.xhtml" />
-         </ui:insert>
-      </div>
-
+	<body>
+	<h:form>
+		<h:commandLink action="Welcome.xhtml">
+		<div id="successDelete">
+			<h1>Account deleted successfully.</h1>
+		</div>
+		</h:commandLink>
+	</h:form>
+		     <ui:insert name = "footer" >
+		        <ui:include src = "/templates/footer.xhtml" />
+		     </ui:insert>
+		
+	</body>
 </html>

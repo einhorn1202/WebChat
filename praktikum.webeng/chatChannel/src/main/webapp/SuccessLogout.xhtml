@@ -10,15 +10,21 @@
     xmlns:h="http://xmlns.jcp.org/jsf/html">
     
 <h:head>
-	<title>Erfolgreich ausgeloggt.</title>
+	<title>Logout successfully.</title>
+	<h:outputStylesheet library = "css" name = "style.css" />
 </h:head>
 
-<h1>Erfolgreich ausgeloggt.</h1>
+	<body>
+	<h:form>
+		<h:commandLink action="Welcome.xhtml">
+			<div id="successDelete">
+				<h1>Logout successfully.</h1>
+			</div>
+		</h:commandLink>
+	</h:form>
+		     <ui:insert name = "footer" >
+		        <ui:include src = "/templates/footer.xhtml" />
+		     </ui:insert>
 
-      <div style = "">
-         <ui:insert name = "footer" >
-            <ui:include src = "/templates/footer.xhtml" />
-         </ui:insert>
-      </div>
-      
+	</body>
 </html>

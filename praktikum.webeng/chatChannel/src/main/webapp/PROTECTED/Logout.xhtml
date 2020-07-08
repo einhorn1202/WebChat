@@ -10,28 +10,28 @@
     xmlns:h="http://xmlns.jcp.org/jsf/html">
     
 <h:head>
-  <title>Ausloggen</title>
+  	<title>Logout</title>
+    <h:outputStylesheet library = "css" name = "style.css" />
 </h:head>
 
-      <div style = "">
+ 	<body>
          <ui:insert name = "header">
             <ui:include src = "/templates/header.xhtml" />
          </ui:insert> 
-      </div>
-      <br/>
+      		
+      	<div id="logout">
+			<h1>Do you really want to logout ?</h1>
 
-<h1>Möchten Sie sich wirklich ausloggen ?</h1>
+			<h:form id="LogoutForm">    
+			  	<h:panelGrid id="grid" columns="2">
+			    	<h:commandButton value="yes" action="#{SuccessLogout}" class="buttons"/>
+			    	<h:commandButton value="no" action="#{Menu}" class="buttons"/>
+			  	</h:panelGrid>
+			</h:form>
+  		</div>
 
-<h:form id="LogoutForm">    
-  <h:panelGrid id="grid" columns="3">
-    <h:commandButton value="ja" action="#{SuccessLogout}" />
-    <h:commandButton value="nein" action="#{Menu}" />
-  </h:panelGrid>
-  </h:form>
-  
-        <div style = "">
-         <ui:insert name = "footer" >
-            <ui:include src = "/templates/footer.xhtml" />
-         </ui:insert>
-      </div>
+        <ui:insert name = "footer" >
+           <ui:include src = "/templates/footer.xhtml" />
+        </ui:insert>
+      </body>
 </html>
