@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import PresentationLayer.*;
 import javax.inject.*;
 
-@WebFilter(filterName="FilterLoggedIn", urlPatterns = {"/PROTECTED/*"})
+//@WebFilter(filterName="FilterLoggedIn", urlPatterns = {"/PROTECTED/*"})
 public class FilterLoggedIn implements javax.servlet.Filter {
 	
 	
@@ -28,19 +28,17 @@ public class FilterLoggedIn implements javax.servlet.Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		((HttpServletResponse) response).sendError(403, "Sie sind nicht eingeloggt!");
 		// TODO Auto-generated method stub
-		//if(userBean.getUser().getUsername() == null)
-		//	((HttpServletResponse) response).sendError(403, "Sie sind nicht eingeloggt!");
-//		else {
-//			chain.doFilter(request, response);
-//		}
+		if(userBean.getUser() == null)
+			((HttpServletResponse) response).sendError(403, "Sie sind nicht eingeloggt!");
+		else {
+			chain.doFilter(request, response);
+		}
 	}
 
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
-		
 	}
 	
 }
