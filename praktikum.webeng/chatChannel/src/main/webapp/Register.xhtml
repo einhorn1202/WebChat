@@ -41,7 +41,7 @@
         <h:outputText value="Color" for="color"/>
         <h:inputText id="color" value="#{userBean.user.color}" required="true"/>
         <h:commandButton action="#{userBean.registerUser}" value="Submit" />
-        <h:commandButton action="registerCancel" value="Abbrechen" id="abbrechen" class="btn btn-danger" immediate="true"/>
+        <h:commandButton action="Register.xhtml" value="Abbrechen" id="abbrechen" class="btn btn-danger" immediate="true"/>
     </h:panelGrid>
 </h:form>
 

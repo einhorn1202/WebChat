@@ -21,30 +21,24 @@
       <br/>
       
 <h1><h:outputText value="Profil bearbeiten"/></h1>
-<h:form id="updateform">
+<h:form id="editform">
     <h:panelGrid id="grid" columns="4">
-    	<h:outputText value="Id" for="id"/>
-        <h:inputText id="id" value="#{userBean.user.userID}" required="true"/>
-        
-        <h:outputText value="Nutzername" for="userName"/>
-        <h:inputText id="userName" value="#{userBean.user.username}" required="true"/>
- 
+        <h:outputText value="Benutzername" for="userName"/>
+        <h:inputText id="userName" value="#{userBean.user.username}" required="true" pt:placeholder="#{userBean.user.username}"/>
+    		
+   		<h:message for="userName" id="errorUsername" errorStyle="color: red" class="help-block alert-danger"/>
         <h:outputText value="Passwort" for="password"/>
-        <h:inputSecret id="password" value="#{userBean.user.password}" required="true"/>
-        
+        <h:inputText id="password" value="#{userBean.user.password}" required="true" pt:placeholder="#{userBean.user.password}">
+        	<f:validator validatorId="PasswordValidator"/>
+    	</h:inputText>
+    	<h:message for="password" style="color:red"/>
         <h:outputText value="Profile_pic" for="profile_pic"/>
-        <h:inputText id="profile_pic" value="#{userBean.user.profilePic}" required="true"/>
-
+        <h:inputText id="profile_pic" value="#{userBean.user.profilePic}" required="true" pt:placeholder="#{userBean.user.profilePic}"/>
+        
         <h:outputText value="Color" for="color"/>
         <h:inputText id="color" value="#{userBean.user.color}" required="true"/>
-
-        <h:commandButton action="#{userBean.updateUser()}" value="Submit" />
+        <h:commandButton action="#{userBean.updateUser}" value="Submit" />
+        <h:commandButton action="ChannelOverview.xhtml" value="Abbrechen" id="abbrechen" class="btn btn-danger" immediate="true"/>
     </h:panelGrid>
-    
-          <div style = "">
-         <ui:insert name = "footer" >
-            <ui:include src = "/templates/footer.xhtml" />
-         </ui:insert>
-      </div>
 </h:form>
 </html>
