@@ -26,15 +26,12 @@
     <h:outputText value="Channelname"/>
     <h:inputText value="#{channelBean.channel.channelName}" /><br/><br/>
     <h:outputText value="Bild hochladen "/>
-    <h:inputText value="#{channelBean.channel.channelPic}" /><br/><br/>
-	<!-- 
-  	     <h:inputFile id="file" value="#{ChannelBean.channel.ChannelPic}"/>
-  	 -->
-    <h:commandButton value="login" action="#{channelBean.addChannel}" />
+    <h:inputFile id="file" value="#{ChannelBean.channel.ChannelPic}"/><br/><br/>
+  	     
+    <h:commandButton value="create" action="#{channelBean.addChannel}" />
     <h:commandButton value="cancel" action="#{ChannelOverview.xhtml}" />
   </h:panelGrid>
 </h:form>
-
 
  <div style = "">
          <ui:insert name = "footer" >
