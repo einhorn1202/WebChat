@@ -11,7 +11,11 @@ body {
 }
 
 h1 {
-     color: grey;
+     color: red;
      font-family: 'Arial', sans-serif;
      font-size: 15vw;  
+}
+
+p{
+	color: red,
 }

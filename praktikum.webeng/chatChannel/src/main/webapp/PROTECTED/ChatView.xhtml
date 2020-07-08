@@ -53,6 +53,15 @@
 		    	<h:commandButton value="Senden" action="#{channelBean.sendMessage(userBean.user)}"/>
 		  	</h:panelGrid>
 	 	</h:form>
+	 	
+	 	<h:form id="refreshform">
+	 		<h:panelGrid id="refreshGrid">
+		    <h:inputText id="refreshInput" value="#{channelBean.valueOfMessage}" required="true"/>
+		    	<h:commandButton value="Senden" action="#{channelBean.sendMessage(userBean.user)}"/>
+		  	</h:panelGrid>
+	 	</h:form>
+	 	
+	 	
     
      <h:form id="LeaveChannelForm">
 		<h:panelGrid id="grid" columns="3">
