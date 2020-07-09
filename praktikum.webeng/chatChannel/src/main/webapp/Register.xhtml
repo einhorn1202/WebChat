@@ -25,7 +25,7 @@
 			   		<h:message for="userName" id="errorUsername" errorStyle="color: red" class="help-block alert-danger"/>
 
 			        <h:inputText id="password" value="#{userBean.user.password}" required="true" pt:placeholder="Password">
-			        	<!--  <f:validator validatorId="PasswordValidator"/> -->
+			        	<f:validator validatorId="PasswordValidator"/>
 			    	</h:inputText>
 			    	<h:message for="password" style="color:red"/>
 			    	
