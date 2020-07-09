@@ -21,12 +21,55 @@ public class ChannelBean {
 	private ArrayList<Channel> channelList;
 	private ArrayList<User> userList;
 	private String valueOfMessage;
+	private String searchChannelName;
 	
-	//private ArrayList<Channel> searchChannelList;
+	public Channel getChannel() {
+		return channel;
+	}
+
+	public void setChannel(Channel channel) {
+		this.channel = channel;
+	}
+
+	public ArrayList<Channel> getChannelList() {
+		return channelList;
+	}
+
+	public void setChannelList(ArrayList<Channel> channelList) {
+		this.channelList = channelList;
+	}
+	public String getValueOfMessage() {
+		return valueOfMessage;
+	}
+
+	public void setValueOfMessage(String valueOfMessage) {
+		this.valueOfMessage = valueOfMessage;
+	}
 	
-	@Inject
-	UserBean userBean;
+	public void setSearchChannelName(String searchChannelName) {
+        this.searchChannelName = searchChannelName;
+    }
+
+    public String getSearchChannelName() {
+        return searchChannelName;
+    }
 	
+	public ChannelManager getChannelManager() {
+		return channelManager;
+	}
+
+	public void setChannelManager(ChannelManager channelManager) {
+		this.channelManager = channelManager;
+	}
+
+	public ArrayList<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(ArrayList<User> userList) {
+		this.userList = userList;
+	}
+
 	@PostConstruct
 	public void init() {
 		if(channelManager == null) {
@@ -45,30 +88,8 @@ public class ChannelBean {
 		  channelManager.clearTableUserInChannel();
 	}
 	
-	public String getValueOfMessage() {
-		return valueOfMessage;
-	}
-
-	public void setValueOfMessage(String valueOfMessage) {
-		this.valueOfMessage = valueOfMessage;
-	}
 	
-	public Channel getChannel() {
-		return channel;
-	}
 
-	public void setChannel(Channel channel) {
-		this.channel = channel;
-	}
-
-	public ArrayList<Channel> getChannelList() {
-		return channelList;
-	}
-
-	public void setChannelList(ArrayList<Channel> channelList) {
-		this.channelList = channelList;
-	}
-	
 	/*
 	 * ACTION-METHODEN DER BEAN
 	 */
@@ -95,27 +116,7 @@ public class ChannelBean {
 		return "leaveChannelSuccess";
 	}
 	
-	/*
-     * Suchfilter-Methoden 
-     */
-    private String searchChannelName = "";
-
-    public void setSearchChannelName(String searchChannelName) {
-        this.searchChannelName = searchChannelName;
-    }
-
-    public String getSearchChannelName() {
-        return searchChannelName;
-    }
-
-    public void searchChannelNameList() {
-        if(searchChannelName.length() > 0)
-        	channelList = channelManager.searchChannel(searchChannelName);
-        else
-        	channelList = channelManager.getAllChannels();
-    }
-    
-    public String sendMessage(User user) {
+	public String sendMessage(User user) {
     	channelManager.addMessageToChannel(channel, user, valueOfMessage);
     	this.channel = channelManager.getChannel(channel.getChannelID());
     	return "";
@@ -125,5 +126,15 @@ public class ChannelBean {
     	this.channel = channelManager.getChannel(channelID);
     	return "" + channel.getActiveuserList().size();
     }
-
+	
+	/*
+     * Suchfilter-Methoden 
+     */
+    
+    public void searchChannelNameList() {
+        if(searchChannelName.length() > 0)
+        	channelList = channelManager.searchChannel(searchChannelName);
+        else
+        	channelList = channelManager.getAllChannels();
+    }
 }

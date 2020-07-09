@@ -91,6 +91,15 @@
 		<from-view-id>/PROTECTED/DeleteUser.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>deleteSuccess</from-outcome>
+			<to-view-id>/SuccessDelete.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>Moin Meister</display-name>
+		<from-view-id>/PROTECTED/Logout.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>logoutSuccess</from-outcome>
 			<to-view-id>/SuccessLogout.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>

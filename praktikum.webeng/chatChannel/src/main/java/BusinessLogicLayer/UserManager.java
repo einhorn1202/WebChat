@@ -7,9 +7,9 @@ import TransferObjects.User;
 
 public class UserManager{
 	
-	UserDAO dao;
+	private UserDAO dao;
 	public UserManager() {
-		dao = DAOFactory.getSQLiteUserDAO();
+		dao = DAOFactory.getUserDAO();
 	}
 
 	public User getUserByID(int id) {

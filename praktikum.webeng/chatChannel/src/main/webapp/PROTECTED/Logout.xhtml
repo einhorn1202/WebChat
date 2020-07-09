@@ -24,8 +24,8 @@
 
 			<h:form id="LogoutForm">    
 			  	<h:panelGrid id="grid" columns="2">
-			    	<h:commandButton value="yes" action="#{SuccessLogout}" class="buttons"/>
-			    	<h:commandButton value="no" action="#{Menu}" class="buttons"/>
+			    	<h:commandButton value="yes" action="#{userBean.logoutUser}" class="buttons"/>
+			    	<h:commandButton value="no" action="Menu.xhtml" class="buttons"/>
 			  	</h:panelGrid>
 			</h:form>
   		</div>

@@ -2,6 +2,7 @@ package PresentationLayer;
 
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -19,13 +20,51 @@ import TransferObjects.User;
 @Named
 @SessionScoped
 public class UserBean implements Serializable {
-	/**
-	 * 
+	/*
+	 * Instanzvariablen
 	 */
 	private User user;
 	private UserManager userManager;
 	private String loginUsername;
 	private String loginPassword;
+	
+	/*
+	 * Getter und Setter
+	 */
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	public UserManager getUserManager() {
+		return userManager;
+	}
+
+	public void setUserManager(UserManager userManager) {
+		this.userManager = userManager;
+	}
+
+	public String getLoginUsername() {
+		return loginUsername;
+	}
+
+	public void setLoginUsername(String loginUsername) {
+		this.loginUsername = loginUsername;
+	}
+
+	public String getLoginPassword() {
+		return loginPassword;
+	}
+
+	public void setLoginPassword(String loginPassword) {
+		this.loginPassword = loginPassword;
+	}
+
+
+	
 
 	@PostConstruct
 	public void init() {
@@ -36,17 +75,7 @@ public class UserBean implements Serializable {
 			user = new User();
 		}
 	}
-
 	
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
-
 	/*
 	 * ACTION-METHODEN DER BEAN
 	 */
@@ -74,16 +103,9 @@ public class UserBean implements Serializable {
 			return "loginFailure";	
 	}
 	
-	//Validators
-	
-	public void usernameValidate(FacesContext ctx, UIComponent ui, Object value) throws ValidatorException{
-		String val = (String) value;
-		if(val.compareTo("") != 0) {
-			if(!userManager.isUsernameValid(val)) {
-				throw new ValidatorException(new FacesMessage("Nutzername bereits vergeben!"));
-			}
-		}
-		else throw new ValidatorException(new FacesMessage("Nutzername ist ein Pflichtfeld!"));
+	public String logoutUser() {
+		user = new User();
+		return "logoutSuccess";
 	}
 	
 	public String getColorOfUser(String username) {
@@ -100,5 +122,19 @@ public class UserBean implements Serializable {
 		return userManager.updateUser(user);
 	}
 	
-
+	
+	/*
+	 * Validators
+	 */
+	
+	
+	public void usernameValidate(FacesContext ctx, UIComponent ui, Object value) throws ValidatorException{
+		String val = (String) value;
+		if(val.compareTo("") != 0) {
+			if(!userManager.isUsernameValid(val)) {
+				throw new ValidatorException(new FacesMessage("Nutzername bereits vergeben!"));
+			}
+		}
+		else throw new ValidatorException(new FacesMessage("Nutzername ist ein Pflichtfeld!"));
+	}
 }

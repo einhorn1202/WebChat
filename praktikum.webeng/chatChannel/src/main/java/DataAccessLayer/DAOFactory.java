@@ -10,7 +10,7 @@ public class DAOFactory {
 		return new SQLiteChannelDAO();
 	}
 	
-	public static UserDAO getSQLiteUserDAO() {
+	public static UserDAO getUserDAO() {
 		return new SQLiteUserDAO();
 	}
 

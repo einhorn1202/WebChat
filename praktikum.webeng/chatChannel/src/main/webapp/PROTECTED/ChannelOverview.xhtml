@@ -30,23 +30,19 @@
 		    </f:ajax>
 		</h:form>
 		    
-	    <h:form id="SelectChannelForm">
 	        <h:dataTable  id="ChannelOverviewTable" value="#{channelBean.channelList}" var="channel">
 	            <h:column>
 	               	<h:outputText name="ChannelName" value="#{channel.channelName}"/>
 	            </h:column>
-	            
 	            <h:column>
 	            	<h:outputText name="activeUsers" value="#{channelBean.countActiveUsers(channel.channelID)}"/>
 	         	</h:column>
-	            
 	            <h:column>
 	            	<h:form>
 	            		<h:commandButton value="Join" action="#{channelBean.joinChannel(channel, userBean.user)}" class="buttons"/>
 	            	</h:form>
 	            </h:column>
 	        </h:dataTable>
-	   	</h:form>
 	   	
 		     <h:form id="AddChannelForm">
 				<h:panelGrid id="grid" columns="1">
