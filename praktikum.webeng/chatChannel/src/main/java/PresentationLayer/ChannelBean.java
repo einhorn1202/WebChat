@@ -96,9 +96,11 @@ public class ChannelBean {
 	
 	public String addChannel() {
 		if(channelManager.isChannelNameValid(channel)) {
+			channel.setChannelPic("default.png");
 			channel.setActiveuserList(new ArrayList<User>());
 			channel.setMessageList(new ArrayList<Message>());
 			channelManager.addChannel(channel);
+			channelList = channelManager.getAllChannels();
 			return "addChannelSuccess";
 		}
 		else return "addChannelFailure";
@@ -137,4 +139,6 @@ public class ChannelBean {
         else
         	channelList = channelManager.getAllChannels();
     }
+    
+    
 }

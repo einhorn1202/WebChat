@@ -24,12 +24,12 @@
 	    </f:view>
 	 	
 	 	<div id="channeloverview">
-	    <h:form id="SearchChannelForm">
-		    <f:ajax event="keyup" render="ChannelOverviewTable" listener="#{channelBean.searchChannelNameList}">
-	            <h:inputText id="channelName" class="form-control" value="#{channelBean.searchChannelName}" pt:placeholder="Search" ></h:inputText>
-		    </f:ajax>
-		</h:form>
-		    
+		    <h:form id="SearchChannelForm">
+			    <f:ajax event="keyup" render="ChannelOverviewTable" listener="#{channelBean.searchChannelNameList}">
+		            <h:inputText id="channelName" class="form-control" value="#{channelBean.searchChannelName}" pt:placeholder="Search" ></h:inputText>
+			    </f:ajax>
+			</h:form>
+		  
 	        <h:dataTable  id="ChannelOverviewTable" value="#{channelBean.channelList}" var="channel">
 	            <h:column>
 	               	<h:outputText name="ChannelName" value="#{channel.channelName}"/>

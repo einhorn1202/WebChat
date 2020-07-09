@@ -19,8 +19,6 @@
 			
 			<h:form id="registerform" enctype="multipart/form-data">
 			    <h:panelGrid id="grid" columns="1">
-			        <h:inputText id="userID" value="#{userBean.user.userID}" pt:placeholder="UserID" required="true"/>
-			        
 			        <h:inputText id="userName" value="#{userBean.user.username}" required="true" validator="#{userBean.usernameValidate}" pt:placeholder="Username" >
 			    		<f:ajax render="errorUsername" execute="@this" event="valueChange" errorStyle="color: red" />
 			    	</h:inputText>
@@ -31,7 +29,7 @@
 			    	</h:inputText>
 			    	<h:message for="password" style="color:red"/>
 			    	
-			    	<h:selectOneRadio value="#{userBean.user.profilePic}" pt:placeholder="Profile Picture" required="true">
+			    	<h:selectOneMenu value="#{userBean.user.profilePic}" pt:placeholder="Profile Picture" required="true">
 					    <f:selectItem itemValue="smiley1.png" itemLabel="Smiley - Lachen"   />
 			        	<f:selectItem itemValue="smiley2.png" itemLabel="Smiley - Engel" />
 			        	<f:selectItem itemValue="smiley3.png" itemLabel="Smiley - Stern" />
@@ -45,7 +43,7 @@
    						<f:selectItem itemValue="smiley11.png" itemLabel="Smiley - Gespenst" />
    						<f:selectItem itemValue="smiley12.png" itemLabel="Smiley - Alien" />    
    						<f:selectItem itemValue="smiley13.png" itemLabel="Smiley - Cool" /> 
-			        </h:selectOneRadio>
+			        </h:selectOneMenu>
 			        
 			        <h:selectOneMenu value="#{userBean.user.color}" pt:placeholder="Color" required="true">
 			        	<f:selectItem itemValue="black" itemLabel="..."   />
