@@ -18,12 +18,12 @@
 	}
 
 /* Menübutton aka. Profilbild */
-	#menu{
+	#ButtonMenu{
 		position: absolute; 
-	    top: 0%; 
-	    right: 0%; 
-	    transform: translate(-0%, -0%);
+	    top: 0;
+	    right: 0; 
 	}
+
 
 /* Logo unten Rechts in der Ecke */
 	#logo{
