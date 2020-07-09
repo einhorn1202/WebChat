@@ -34,7 +34,23 @@
 				    	
 				        <h:inputFile id="file" value="#{userBean.user.profilePic}" pt:placeholder="#{userBean.user.profilePic}" class="buttons" />
 				        
-				        <h:inputText id="color" value="#{userBean.user.color}" required="true"/>
+				        <h:selectOneMenu value="#{userBean.user.color}" pt:placeholder="Color" required="true">
+				        	<f:selectItem itemValue="black" itemLabel="..."   />
+				        	<f:selectItem itemValue="silver" itemLabel="Silver" />
+				        	<f:selectItem itemValue="gray" itemLabel="Gray" />
+				        	<f:selectItem itemValue="black" itemLabel="Black" />
+	   						<f:selectItem itemValue="red" itemLabel="Red"/>
+	   						<f:selectItem itemValue="maroon" itemLabel="Maroon" />
+	   						<f:selectItem itemValue="olive" itemLabel="Olive" />
+	   						<f:selectItem itemValue="lime" itemLabel="Lime" />
+	   						<f:selectItem itemValue="green" itemLabel="Green" />
+	   						<f:selectItem itemValue="aqua" itemLabel="Aqua" />
+	   						<f:selectItem itemValue="teal" itemLabel="Teal" />
+	   						<f:selectItem itemValue="blue" itemLabel="Blue" />    
+	   						<f:selectItem itemValue="navy" itemLabel="Navy" />  
+	   						<f:selectItem itemValue="fuchsia" itemLabel="Fuchsia" /> 
+	   						<f:selectItem itemValue="purple" itemLabel="Purple" />                    
+						</h:selectOneMenu>
 				    </h:panelGrid>
 
 				    <h:panelGrid id="buttonlane" columns="2">    
