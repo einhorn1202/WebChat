@@ -22,7 +22,7 @@
 			        <h:inputText id="userID" value="#{userBean.user.userID}" pt:placeholder="UserID" required="true"/>
 			        
 			        <h:inputText id="userName" value="#{userBean.user.username}" required="true" validator="#{userBean.usernameValidate}" pt:placeholder="Username" >
-			    		<f:ajax render="errorUsername" execute="@this" event="valueChange"/>
+			    		<f:ajax render="errorUsername" execute="@this" event="valueChange" errorStyle="color: red" />
 			    	</h:inputText>
 			   		<h:message for="userName" id="errorUsername" errorStyle="color: red" class="help-block alert-danger"/>
 
@@ -31,9 +31,25 @@
 			    	</h:inputText>
 			    	<h:message for="password" style="color:red"/>
 			    	
-			    	<h:inputFile id="file" value="#{userBean.user.profilePic}" pt:placeholder="#{userBean.user.profilePic}" required="true" class="buttons" />
+			    	<h:inputFile id="file" value="#{userBean.user.profilePic}" pt:placeholder="#{userBean.user.profilePic}" class="buttons" />
 			        
-			        <h:inputText id="color" value="#{userBean.user.color}" pt:placeholder="Color" required="true"/>
+			        <h:selectOneMenu value="#{userBean.user.color}" pt:placeholder="Color" required="true">
+			        	<f:selectItem itemValue="black" itemLabel="..."   />
+			        	<f:selectItem itemValue="silver" itemLabel="Silver" />
+			        	<f:selectItem itemValue="gray" itemLabel="Gray" />
+			        	<f:selectItem itemValue="black" itemLabel="Black" />
+   						<f:selectItem itemValue="red" itemLabel="Red"/>
+   						<f:selectItem itemValue="maroon" itemLabel="Maroon" />
+   						<f:selectItem itemValue="olive" itemLabel="Olive" />
+   						<f:selectItem itemValue="lime" itemLabel="Lime" />
+   						<f:selectItem itemValue="green" itemLabel="Green" />
+   						<f:selectItem itemValue="aqua" itemLabel="Aqua" />
+   						<f:selectItem itemValue="teal" itemLabel="Teal" />
+   						<f:selectItem itemValue="blue" itemLabel="Blue" />    
+   						<f:selectItem itemValue="navy" itemLabel="Navy" />  
+   						<f:selectItem itemValue="fuchsia" itemLabel="Fuchsia" /> 
+   						<f:selectItem itemValue="purple" itemLabel="Purple" />                    
+					</h:selectOneMenu>
 			    </h:panelGrid>
 			    
 			    <h:panelGrid id="buttonlane" columns="2">
