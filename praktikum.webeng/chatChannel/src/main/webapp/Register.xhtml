@@ -31,7 +31,21 @@
 			    	</h:inputText>
 			    	<h:message for="password" style="color:red"/>
 			    	
-			    	<h:inputFile id="file" value="#{userBean.user.profilePic}" pt:placeholder="#{userBean.user.profilePic}" class="buttons" />
+			    	<h:selectOneRadio value="#{userBean.user.profilePic}" pt:placeholder="Profile Picture" required="true">
+					    <f:selectItem itemValue="smiley1.png" itemLabel="Smiley - Lachen"   />
+			        	<f:selectItem itemValue="smiley2.png" itemLabel="Smiley - Engel" />
+			        	<f:selectItem itemValue="smiley3.png" itemLabel="Smiley - Stern" />
+			        	<f:selectItem itemValue="smiley4.png" itemLabel="Smiley - Herz" />
+   						<f:selectItem itemValue="smiley5.png" itemLabel="Smiley - Verwundert"/>
+   						<f:selectItem itemValue="smiley6.png" itemLabel="Smiley - Cowboy"/>
+   						<f:selectItem itemValue="smiley7.png" itemLabel="Smiley - Roboter" />
+   						<f:selectItem itemValue="smiley8.png" itemLabel="Smiley - Clown" />
+   						<f:selectItem itemValue="smiley9.png" itemLabel="Smiley - Haufen" />
+   						<f:selectItem itemValue="smiley10.png" itemLabel="Smiley - Katze" />
+   						<f:selectItem itemValue="smiley11.png" itemLabel="Smiley - Gespenst" />
+   						<f:selectItem itemValue="smiley12.png" itemLabel="Smiley - Alien" />    
+   						<f:selectItem itemValue="smiley13.png" itemLabel="Smiley - Cool" /> 
+			        </h:selectOneRadio>
 			        
 			        <h:selectOneMenu value="#{userBean.user.color}" pt:placeholder="Color" required="true">
 			        	<f:selectItem itemValue="black" itemLabel="..."   />
@@ -48,13 +62,13 @@
    						<f:selectItem itemValue="blue" itemLabel="Blue" />    
    						<f:selectItem itemValue="navy" itemLabel="Navy" />  
    						<f:selectItem itemValue="fuchsia" itemLabel="Fuchsia" /> 
-   						<f:selectItem itemValue="purple" itemLabel="Purple" />                    
+   						<f:selectItem itemValue="purple" itemLabel="Purple" />                 
 					</h:selectOneMenu>
 			    </h:panelGrid>
 			    
 			    <h:panelGrid id="buttonlane" columns="2">
 			        <h:commandButton action="#{userBean.registerUser}" value="Submit" class="buttons" />
-			        <h:commandButton action="Register.xhtml" value="cancel" id="cancel" class="buttons" immediate="true"/>
+			        <h:commandButton action="Welcome.xhtml" value="cancel" id="cancel" class="buttons" immediate="true"/>
 			    </h:panelGrid>
 			</h:form>
 		</div>
